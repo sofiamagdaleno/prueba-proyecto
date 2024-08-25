@@ -1,0 +1,36 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  text-align: left;
+  font-size: 20px;
+}
+
+.product-details {
+  padding: 15px;
+}
+
+.product-name {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/*.product-description {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  } */
+
+.product-price {
+  background-color: pink;
+}
+
+
+.navbar {
+  background-color: pink;
+}
