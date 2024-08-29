@@ -21,4 +21,5 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "products.html";
         });
     }
+    document.getElementById('user').textContent = usuario;
 });
