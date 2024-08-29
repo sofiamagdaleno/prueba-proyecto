@@ -1,7 +1,7 @@
 .jumbotron,
 .card-body,
 .container,
-.site-header {
+.site-header{
   font-family: 'Verdana', serif !important;
 }
 
@@ -188,6 +188,16 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+.nav-right {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(37, 37, 37, 0.5);
+  padding: 10px 20px;
+  color:rgba(255, 255, 255, 0.5);
+}
+
 
 
 
