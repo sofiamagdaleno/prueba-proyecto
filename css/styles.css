@@ -197,6 +197,48 @@ a.custom-card:hover {
   padding: 10px 20px;
   color:rgba(255, 255, 255, 0.5);
 }
+/* web responsiva*/
+
+
+/* pantallas pequeñas */
+@media (max-width: 576px) {
+  .col-sm-6, .col-sm-12 {
+    margin-bottom: 15px;
+  }
+}
+
+/* pantallas medianas */
+@media (min-width: 577px) and (max-width: 768px) {
+  .col-sm-6 {
+    margin-bottom: 15px;
+  }
+}
+
+/* pantallas grandes */
+@media (min-width: 769px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+/*diferentes tamaños de pantalla */
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 577px) {
+  body {
+    font-size: 16px;
+  }
+}
 
 
 
@@ -249,23 +291,23 @@ h1{
 }
 input[type="text"],
 input[type="password"] {
-  margin-left: 8%;
-  width: 80%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 3px;
+  justify-content: center;
 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
   
  input [type="submit"]{
-      width: 80%;
+      width: 100%;
       padding: 10px;
       background-color: #0056b0;
       color: rgb(255, 255, 255);
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      margin-left: 8%;
+      display: flex;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       
   }
@@ -290,6 +332,9 @@ footer{
   height: auto;
   display: block;
   margin-bottom: 20px;
+}
+.float-end{
+  display: flex;
 }
 /*fin css login*/
 
