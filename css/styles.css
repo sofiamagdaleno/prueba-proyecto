@@ -321,7 +321,7 @@ body {
   padding: 2% 5%; /* Ajustar padding para mantener espacio alrededor del contenido */
 }
 
-footer{
+.text-muted mt-5{
   position:absolute;
   width: 60%;
  display: flex;
