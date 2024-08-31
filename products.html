@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -18,8 +18,10 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg p-1">
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg p-1 navbar-light bg-light">
       <div class="container">
+        <!-- Botón para desplegar el menú en dispositivos móviles -->
         <button
           class="navbar-toggler"
           type="button"
@@ -31,36 +33,46 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav w-100 justify-content-between">
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="categories.html"
-                >Categorías</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="sell.html">Vender</a>
-            </li>
-          </ul>
-        </div>
+        <!-- Contenido del menú de navegación -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav w-100 justify-content-between">
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="categories.html"
+                  >Categorías</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="sell.html">Vender</a>
+              </li>
+            </ul>
+          </div>
       </div>
     </nav>
 
-    <h1>Listado de Productos</h1>
+    <!-- Encabezado principal -->
+    <header class="text-center my-4">
+      <h1>Listado de Productos</h1>
+    </header>
+
+    <!-- Contenedor de productos -->
     <div class="container">
       <div id="products-list" class="row d-flex justify-content-center"></div>
     </div>
 
-    <div id="product-template" class="col-4 d-none my-2">
+    <!-- Plantilla de producto para JavaScript -->
+    <div id="product-template" class="col-sm-12 col-md-6 col-lg-4 d-none my-2">
       <div class="product bg-white rounded-3 shadow flex-column">
         <div class="rounded-top position-relative">
           <img src="" alt="Imagen del producto" class="rounded-top img-fluid" />
-          <span class="product-price position-absolute bottom-0 end-0 p-2 rounded m-2">Precio:</span>
+          <span
+            class="product-price position-absolute bottom-0 end-0 p-2 rounded m-2"
+            >Precio:</span
+          >
         </div>
-        <div class="product-details">
+        <div class="product-details p-2">
           <div class="product-name">Nombre del producto</div>
           <div class="product-description">Descripción del producto</div>
           <div class="product-sold">Vendidos:</div>
@@ -68,8 +80,9 @@
       </div>
     </div>
 
-    <footer class="text-muted">
-      <div class="container">
+    <!-- Pie de página -->
+    <footer class="text-muted bg-light py-3">
+      <div class="container text-center">
         <p class="float-end">
           <a href="#">Volver arriba</a>
         </p>
@@ -82,6 +95,7 @@
       </div>
     </footer>
 
+    <!-- Indicador de carga -->
     <div id="spinner-wrapper">
       <div class="lds-ring">
         <div></div>
@@ -91,8 +105,9 @@
       </div>
     </div>
 
+    <!-- Scripts -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
   </body>
-</html>
+</html> 
