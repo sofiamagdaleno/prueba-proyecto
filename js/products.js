@@ -1,4 +1,6 @@
-const url = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+let valor_id = localStorage.getItem("catID");
+console.log(valor_id);
+const url = "https://japceibal.github.io/emercado-api/cats_products/" + valor_id + ".json";
 
 async function loadProducts() {
   try {
