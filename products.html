@@ -50,7 +50,46 @@
             </ul>
           </div>
       </div>
+     <div class="container mt-4">
+       
+        <!-- Botón para desplegar el filtro -->
+        <button class="btn btn-primary mb-4" id="FilterButton">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter" viewBox="0 0 16 16">
+            <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"/>
+          </svg>
+        </button>
     </nav>
+    
+    <div id="filterContainer">
+      <div class="row mb-4">
+        <div class="col-sm-4">
+    <div class="container my-3">
+       
+      <form id="filtroMinMax" class="col-sm-4">
+        <label for="min-price">Precio mínimo:</label>
+        <input type="number" id="min-price" class="form-control mb-2" placeholder="0" />
+      <div class="col-sm-4">
+        <label for="max-price">Precio máximo:</label>
+        <input type="number" id="max-price" class="form-control mb-2" placeholder="0" />
+      </div>
+      <div class="select-wrapper">
+        <label for="seleccion" class="form-label">Ordenar Por:</label>
+        <select id="seleccion"  class="custom-select">
+          <option value="asc">Precio Ascendente</option>
+          <option value="desc">Precio Descendente</option>
+          <option value="relevance">Más Vendidos</option>
+        </select>
+        <p id="resultado"></p>
+      </div>
+      <div class="col-sm-4 d-flex align-items-end" id="buscarBTN">
+        <button type="submit" class="btn btn-primary" id="buscarBTN">Buscar</button>
+      </div>
+    </div>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
 
     <!-- Encabezado principal -->
     <header class="text-center my-4">
