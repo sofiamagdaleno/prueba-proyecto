@@ -57,11 +57,6 @@ function showProducts(products) {
   });
 }
 
-
-// Funcionalidad para mostrar/ocultar el contenedor de filtros
-document.getElementById('FilterButton').addEventListener('click', function() {
-  let filterContainer = document.getElementById('filterContainer');
-
 // Función de búsqueda
 searchInput.addEventListener("keyup", async (event) => {
   const inputValue = event.target.value;
@@ -129,6 +124,7 @@ sortFilter.addEventListener('change', (event) => {
   }
 
   showProducts(sortedProducts);
+})
 });
 
 // Función para seleccionar un producto
