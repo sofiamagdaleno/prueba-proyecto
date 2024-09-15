@@ -1,6 +1,9 @@
 let valor_id = localStorage.getItem("catID");
 const url = "https://japceibal.github.io/emercado-api/cats_products/" + valor_id + ".json";
 
+
+let productos = [];
+
 const searchInput = document.getElementById('search-products')
 const filtersButton = document.getElementById('filters-button')
 const minMaxFilter = document.getElementById('filtro-min-max')
@@ -41,10 +44,23 @@ function showProducts(products) {
     productClone.querySelector(".product-price").textContent = `Precio: ${product.cost} ${product.currency}`;
     productClone.querySelector(".product-sold").textContent = `Vendidos: ${product.soldCount}`;
 
+
+    // Añadir evento para seleccionar producto
+    productClone.addEventListener('click', () => {
+      selectProduct(product.id); // Asumimos que el objeto 'product' tiene una propiedad 'id'
+    });
+
+
     // Añadir el producto clonado al contenedor principal
+
     productsList.appendChild(productClone);
   });
 }
+
+
+// Funcionalidad para mostrar/ocultar el contenedor de filtros
+document.getElementById('FilterButton').addEventListener('click', function() {
+  let filterContainer = document.getElementById('filterContainer');
 
 // Función de búsqueda
 searchInput.addEventListener("keyup", async (event) => {
@@ -66,6 +82,7 @@ searchInput.addEventListener("keyup", async (event) => {
 // Funcionalidad para mostrar/ocultar el contenedor de filtros
 filtersButton.addEventListener('click', function() {
   let filterContainer = document.getElementById('filter-container');
+
   if (filterContainer.style.display === 'none' || filterContainer.style.display === '') {
     filterContainer.style.display = 'block'; // Mostrar el contenedor
   } else {
@@ -84,9 +101,16 @@ minMaxFilter.addEventListener('submit', (e) => {
 });
 
 
+// Ordenar productos
+document.querySelector("#seleccion").addEventListener('change', () => {
+  const seleccion = document.querySelector("#seleccion").value;
+  let productosOrdenados = [...productos];
+
+
 sortFilter.addEventListener('change', (event) => {
   const sortSelected = event.target.value
   let sortedProducts;
+
 
   console.log(data)
   switch (sortSelected) {
@@ -107,5 +131,12 @@ sortFilter.addEventListener('change', (event) => {
   showProducts(sortedProducts);
 });
 
-window.onload = loadProducts
+// Función para seleccionar un producto
+function selectProduct(productId) {
+  // Guardar el identificador del producto en localStorage
+  localStorage.setItem('selectedProductid', productId);
+  // Redirigir a product-info.html
+  window.location.href = 'product-info.html';
+}
 
+window.onload = loadProducts;
