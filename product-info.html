@@ -59,183 +59,117 @@
       </div> -->
       <!-- Fin alerta de funcionalidad en desarrollo -->
 
-<!-- carrusel y miniaturas -->
-<div class="container mt-4">
-  <!-- Carrusel de producto -->
-  <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <!-- Elemento del carrusel activo -->
-      <div class="carousel-item active">
-        <img src="img/prod50921_1.jpg" class="d-block w-100" alt="Imagen principal del producto">
-      </div>
-      <!-- Otras imágenes del carrusel -->
-      <div class="carousel-item">
-        <img src="img/prod50921_2.jpg" class="d-block w-100" alt="Imagen secundaria 1">
-      </div>
-      <div class="carousel-item">
-        <img src="img/prod50921_3.jpg" class="d-block w-100" alt="Imagen secundaria 2">
-      </div>
-      <div class="carousel-item">
-        <img src="img/prod50921_4.jpg" class="d-block w-100" alt="Imagen secundaria 3">
-      </div>
-    </div>
-    <!-- Controles del carrusel -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-
-  <!-- Miniaturas debajo del carrusel -->
-  <div class="row mt-3">
-    <div class="col-3">
-      <img src="img/prod50921_1.jpg" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="0" alt="Miniatura 1">
-    </div>
-    <div class="col-3">
-      <img src="img/prod50921_2.jpg" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="1" alt="Miniatura 2">
-    </div>
-    <div class="col-3">
-      <img src="img/prod50921_3.jpg" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="2" alt="Miniatura 3">
-    </div>
-    <div class="col-3">
-      <img src="img/prod50921_4.jpg" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="3" alt="Miniatura 4">
-    </div>
-  </div>
-</div>
-  <!-- Fin de carrusel -->
- <!-- Fin de carrusel y miniaturas -->
-
-      <!-- bloque de información  -->
-      <div class="container-info-product">
-        <div class="name-of-product">
-          <h4>Chevrolet Onix Joy</h4>
-        </div>
-        <div class="categorie-of-product">
-          <h3><i class="fa-solid fa-check"></i> Auto</h3>
-        </div>
-        <div class="container-price">
-          <span>USD$13500</span>
-          <i class="fa-solid fa-chevron-right"></i>
-        </div>
-        <span class="sold-count-of-product">
-          <h3><i class="fa-solid fa-plus"></i> 14 vendidos</h3>
-        </span>
-        <div class="container-add-cart">
-          <div class="container-quantity">
-            <label for="quantity" class="label-quantity">Cantidad:</label>
-             <input
-             id="quantity"
-              type="number"
-              placeholder="1"
-              value="1"
-              min="1"
-              class="input-quantity"
-            />
+      
+        <div class="container mt-4">
+          <!-- Carrusel de producto -->
+          <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img id="product-image" src="" class="d-block w-100" alt="Imagen principal del producto">
+              </div>
+              <!-- Imágenes secundarias del carrusel -->
+              <div class="carousel-item">
+                <img src="" class="d-block w-100" alt="Imagen secundaria 1">
+              </div>
+              <div class="carousel-item">
+                <img src="" class="d-block w-100" alt="Imagen secundaria 2">
+              </div>
+              <div class="carousel-item">
+                <img src="" class="d-block w-100" alt="Imagen secundaria 3">
+              </div>
+            </div>
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          <div class="btn-increment-decrement">
-            <i class="fa-solid fa-chevron-up" id="increment"></i>
-            <i class="fa-solid fa-chevron-down" id="decrement"></i>
+  
+          <!-- Miniaturas debajo del carrusel -->
+          <div class="row mt-3">
+            <div class="col-3">
+              <img src="" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="0" alt="Miniatura 1">
+            </div>
+            <div class="col-3">
+              <img src="" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="1" alt="Miniatura 2">
+            </div>
+            <div class="col-3">
+              <img src="" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="2" alt="Miniatura 3">
+            </div>
+            <div class="col-3">
+              <img src="" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="3" alt="Miniatura 4">
+            </div>
           </div>
         </div>
-        <div class="container-description">
-          <div class="title-description">
-            <h4>Descripción del producto</h4>
-            <i class="fa-solid fa-chevron-down"></i>
+  
+        <!-- Bloque de información -->
+        <div class="container-info-product">
+          <div class="name-of-product">
+            <h4 id="product-name">Nombre del producto</h4>
           </div>
-          <div class="text-description">
-            <p>
-              Generación 2019, variedad de colores. Motor 1.0, ideal para
-              ciudad.
-            </p>
+          <div class="categorie-of-product">
+            <h3><i class="fa-solid fa-check"></i> <span id="product-category">Categoría</span></h3>
           </div>
-          <div class="container-additional-information">
-            <div class="title-additional-information">
-              <h4>Información adicional del producto</h4>
+          <div class="container-price">
+            <span id="product-price">Precio</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+          <span class="sold-count-of-product">
+            <h3><i class="fa-solid fa-plus"></i> <span id="product-sold">Vendidos</span></h3>
+          </span>
+          <div class="container-add-cart">
+            <div class="container-quantity">
+              <label for="quantity" class="label-quantity">Cantidad:</label>
+              <input
+                id="quantity"
+                type="number"
+                placeholder="1"
+                value="1"
+                min="1"
+                class="input-quantity"
+              />
+            </div>
+            <div class="btn-increment-decrement">
+              <i class="fa-solid fa-chevron-up" id="increment"></i>
+              <i class="fa-solid fa-chevron-down" id="decrement"></i>
+            </div>
+          </div>
+          <div class="container-description">
+            <div class="title-description">
+              <h4>Descripción del producto</h4>
               <i class="fa-solid fa-chevron-down"></i>
             </div>
-            <div class="text-additional-information hidden">
-              <p>añadir informacion adicional si es necesario</p>
+            <div class="text-description hidden" id="product-description">
+              <p>Descripción del producto</p>
+            </div>
+            <div class="container-additional-information">
+              <div class="title-additional-information">
+                <h4>Información adicional del producto</h4>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="text-additional-information hidden">
+                <p>Información adicional si es necesario</p>
+              </div>
             </div>
           </div>
+          <button class="btn-buy">Comprar</button>
         </div>
-        <button class="btn-buy">Comprar</button>
-      </div>
-      <!-- Fin de bloque de información -->
-    </main>
-    <!-- Productos relacionados -->
+      </main>
+  
+      <!-- Productos relacionados -->
+<section class="titulo">
+  <div class="title-related-products">
+    <h2>Productos relacionados</h2>
+  </div>
+</section>
 
-     <section class="titulo">
-      <div class="title-related-products"></div>
-        <h2>Productos relacionados</h2>
-      </div>
-     </section>
-
-    <section class="container-related-products">
-
-      <div class="card-list-products">
-        <div class="card">
-          <div class="card-img-related-product">
-            <img src="img/prod50922_1.jpg" alt="producto-1" />
-          </div>
-          <div class="info-card">
-            <div class="text-product">
-              <h3>Fiat Way <label class="category"><i class="fa-solid fa-check"></i> Auto</label></h3>
-           </div>
-          <div class="price">USD$14500</div>
-          </div>
-          <div class="description-of-related-products">La versión de Fiat que brinda confort y a un precio accesible.</div>
-        </div>
-      </div>
-      <div class="card-list-products">
-        <div class="card">
-          <div class="card-img-related-product">
-            <img src="img/prod50923_1.jpg" alt="producto-2" />
-          </div>
-          <div class="info-card">
-            
-            <div class="text-product">
-              <h3>Suzuki Celerio <label class="category"><i class="fa-solid fa-check"></i> Auto</label></h3>  
-           </div>
-           <div class="price">USD$12500</div>
-          </div>
-          <div class="description-of-related-products">Un auto que se ha ganado la buena fama por su economía con el combustible.</div>
-        </div>
-      </div>
-      <div class="card-list-products">
-        <div class="card">
-          <div class="card-img-related-product">
-            <img src="img/prod50924_1.jpg" alt="producto-3" />
-          </div>
-          <div class="info-card">
-            
-            <div class="text-product">
-              <h3>Peugeot 208 <label class="category"><i class="fa-solid fa-check"></i> Auto</label></h3>
-            </div>
-            <div class="price">USD$15200</div>
-          </div>
-          <div class="description-of-related-products">El modelo de auto que se sigue renovando y manteniendo su prestigio en comodidad.</div>
-        </div>
-      </div>
-      <div class="card-list-products">
-        <div class="card">
-          <div class="card-img-related-product">
-            <img src="img/prod50925_1.jpg" alt="producto-4" />
-          </div>
-          <div class="info-card">
-            <div class="text-product">
-              <h3>Bugatti Chiron <label class="category"><i class="fa-solid fa-check"></i> Auto</label></h3>
-           </div>
-           <span class="price">USD$3500000</span>
-          </div>
-          <div class="description-of-related-products">El mejor hiperdeportivo de mundo. Producción limitada a 500 unidades.</div>
-        </div>
-      </div>
-    </section>
-    <!-- Fin de productos relacionados -->
+<section class="container-related-products">
+</section>
+<!-- Fin de productos relacionados -->
     <!-- Pie de pagina -->
     <footer class="text-muted">
       <div class="container">
