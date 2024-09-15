@@ -57,21 +57,25 @@ h1 {
    .product-template { 
     margin: 10px;
   }
- } 
+} 
+
 #min-price {
   border: 1px solid rgb(255, 154, 230) ;
   border-radius: 0.8rem;
   width: 100%;
 }
+
 #max-price{
   border: 1px solid rgb(255, 154, 230) ;
   border-radius: 0.8rem;
   width: 100%;
 }
-#filtroMinMax .col-sm-4 {
+
+#filtro-min-max .col-sm-4 {
   flex: 1 1 200px;
 }
-#filtroMinMax {
+
+#filtro-min-max {
   display: flex;
   flex-wrap: wrap;
   background-color: #f5f5f5;
@@ -79,29 +83,50 @@ h1 {
   box-shadow: 0 2px 20px rgba(0,0,0,0.1);
 
 }
+
+#filter-container {
+  display: none;
+}
+
 .select-wrapper {
- 
   width: 200px;
 }
-  .custom-select {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 1px solid rgb(255, 154, 230) ;
-    border-radius: 0.8rem;
-    background-color: white;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.3s ease;
-  }
 
-  .custom-select:hover {
-    border-color:rgb(255, 154, 230) ;
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid rgb(255, 154, 230) ;
+  border-radius: 0.8rem;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.custom-select:hover {
+  border-color:rgb(255, 154, 230) ;
+}
+
+@media (max-width: 600px) {
+  .select-wrapper {
+    width: 100%;
   }
-  @media (max-width: 600px) {
-    .select-wrapper {
-      width: 100%;
-    }
-  }
+}
+
+/* buscador */
+ .search-container {
+  display: flex;
+  align-items: center;
+}
+
+#search-products {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  width: 250px;
+}
