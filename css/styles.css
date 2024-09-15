@@ -26,6 +26,9 @@ nav a {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
+  main {
+    flex-direction: column;
+}
 }
 
 .jumbotron {
