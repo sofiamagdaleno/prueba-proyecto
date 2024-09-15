@@ -27,12 +27,22 @@ async function loadProducts() {
       ).textContent = `Precio: ${product.cost} ${product.currency}`;
       productClone.querySelector('.product-sold').textContent = `Vendidos: ${product.soldCount}`;
 
+      productClone.addEventListener('click', () => {
+        selectProduct(product.id);
+      });
+
       // Añadir el producto clonado al contenedor principal
       productsList.appendChild(productClone);
     });
   } catch (error) {
     console.error("Error al cargar los productos:", error);
   }
+}
+function selectProduct(productId) {
+  // Guardar el identificador del producto en localStorage
+  localStorage.setItem('selectedProductid', productId);
+  // Redirigir a product-info.html
+  window.location.href = 'product-info.html';
 }
 
 window.onload = loadProducts;
