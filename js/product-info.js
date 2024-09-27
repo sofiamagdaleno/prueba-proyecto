@@ -134,6 +134,48 @@ if (toggleAdditionalInformation && contentAdditionalInformation) {
         contentAdditionalInformation.classList.toggle('hidden');
     });
 }
+// Seccion comentarios del producto
+const url_comm = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
+
+const calificaciones_usuarios = document.getElementById('calificacion-usuarios');
+
+fetch(url_comm)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Error al obtener los datos');
+    }
+    return response.json();
+  })
+  .then(data => {
+    data.forEach(comment => {
+      const commentDiv = document.createElement('div');
+
+      let stars = '';
+      for (let i = 0; i < 5; i++) {
+        if (i < comment.score) {
+          stars += '<span class="star">&#9733;</span>'; 
+        } else {
+          stars += '<span class="star empty-star">&#9734;</span>'; 
+        }
+      }
+
+      commentDiv.innerHTML = `
+        <div class="user-info">
+          <strong>${comment.user}</strong><div class="user-rating">${stars}</div> <!-- Estrellas pegadas al nombre -->
+        </div>
+        <div class="user-info">
+          <span>Fecha: ${comment.dateTime}</span>
+        </div>
+        <div class="comment">
+          <p>${comment.description}</p>
+        </div>
+      `;
+
+      // Añadir el comentario al contenedor
+      calificaciones_usuarios.appendChild(commentDiv);
+    });
+  })
+  .catch(error => console.error('Error al cargar los comentarios:', error));
 
 // Cargar los detalles del producto al cargar la página
 window.onload = loadProductInfo;

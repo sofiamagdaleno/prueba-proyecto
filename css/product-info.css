@@ -408,3 +408,50 @@ color: var(--c);
   background-color: #fcbee9;
 }
 
+/* Estilos para el título "Calificaciones de los usuarios" */
+.titulo-calificaciones {
+  background-color: #ffcccb; /* Fondo rosa claro */
+  border: 1px solid #f5c6cb; /* Borde rosa más oscuro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px;
+  color: #721c24; /* Texto en un tono rosa oscuro */
+  font-size: 1.5rem;
+  margin-bottom: 20px; /* Separación del contenido siguiente */
+  max-width: 300px; /* Limitar el ancho del título */
+  text-align: left; /* Alinear el texto a la izquierda */
+}
+
+/* Estilo para la información del usuario */
+.user-info {
+  display: flex;
+  align-items: center; /* Estrellas alineadas con el nombre */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Ajuste para las estrellas pegadas al nombre */
+.user-rating {
+  margin-left: 5px; /* Pequeña separación entre el nombre y las estrellas */
+  display: flex;
+}
+
+.star {
+  color: #ffc107 !important; 
+  font-size: 1.5rem; /* Tamaño de las estrellas */
+  margin-left: 2px; /* Espacio entre las estrellas */
+}
+
+.empty-star {
+  color: #6c757d !important; /* Color gris oscuro */
+}
+
+.user-info span {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.comment p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
