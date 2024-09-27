@@ -348,11 +348,23 @@ transform: scale(1.1);
 }
 /*controles de valoracion*/
 
+/* Estilo para el área de texto */
 textarea {
-  width: 400px;  /* Anchura del área de texto */
-  height: 100px; /* Altura del área de texto */
+  min-width: 30%;  
+  resize: none;
+  max-height: 200px;
+  border:none;
+  border: 1px solid #666;
+  border-radius: 4px;
+  background-color: #ededed;
+  
 }
-
+/*Estilo para el comentario*/
+.comment-container{
+  font-size: 16px;
+  font-weight: 500;
+}
+/*Estilos para estrellas*/
 .container{
   flex-direction: column;
   gap: 40px;
@@ -393,7 +405,7 @@ transition: .5s;
 .rating input:checked::before {
 color: var(--c);
 }
-
+/*Estilos para el boton*/
 .boton{
   background-color: #F36DFF; 
   color: rgb(0, 0, 0);              
