@@ -93,6 +93,44 @@ async function loadRelatedProducts(category) {
     }
 }
 
+const apiUrl = 'https://japceibal.github.io/emercado-api/products/';
+// Cambia esto al id del producto actual según la URL o lógica que uses
+
+// Función para cargar los datos del producto
+function loadProduct(productId) {
+  fetch(`${apiUrl}${productId}.json`)
+    .then(response => response.json())
+    .then(product => {
+      displayRelatedProducts(product.relatedProducts);
+      // Aquí puedes también actualizar la información del producto principal
+    })
+    .catch(error => console.error('Error al cargar el producto:', error));
+}
+
+// Función para mostrar los productos relacionados
+function displayRelatedProducts(relatedProducts) {
+  const container = document.getElementById('related-products-container');
+  container.innerHTML = ''; // Limpiar productos anteriores
+
+  relatedProducts.forEach(product => {
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('related-product');
+
+    productDiv.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" />
+      <h3>${product.name}</h3>
+    `;
+
+    productDiv.addEventListener('click', () => {
+      loadProduct(product.id); // Al hacer clic, carga el producto relacionado
+    });
+
+    container.appendChild(productDiv);
+  });
+}
+
+// Cargar el producto al cargar la página
+loadProduct(productId);
 // Definir elementos de control y variables
 const btnIncrement = document.getElementById('increment');
 const btnDecrement = document.getElementById('decrement');
