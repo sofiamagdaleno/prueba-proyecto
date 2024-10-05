@@ -131,6 +131,7 @@ sortFilter.addEventListener('change', (event) => {
 function selectProduct(productId) {
   // Guardar el identificador del producto en localStorage
   localStorage.setItem('selectedProductid', productId);
+  localStorage.setItem('relatedProductId', productId);
   // Redirigir a product-info.html
   window.location.href = 'product-info.html';
 }

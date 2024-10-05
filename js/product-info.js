@@ -5,8 +5,7 @@ const url = `https://japceibal.github.io/emercado-api/products/${productId}.json
 async function loadProductInfo() {
     try {
         const response = await fetch(url);
-        const data = await response.json();
-        const product = data; // Producto obtenido
+        const product = await response.json(); // Producto obtenido directamente
 
         if (product) {
             // Mostrar la información del producto en la página
@@ -17,36 +16,36 @@ async function loadProductInfo() {
             document.getElementById('product-sold').textContent = `Vendidos: ${product.soldCount || 'Información no disponible'}`;
             document.getElementById('product-category').textContent = product.category || 'Categoría no disponible';
 
-            // Cambios: Actualizar el carrusel con las imágenes del producto
+            // Actualizar el carrusel con las imágenes del producto
             const carouselItems = document.querySelectorAll('#productCarousel .carousel-item');
             carouselItems.forEach((item, index) => {
                 const img = item.querySelector('img');
                 if (product.images && product.images[index]) {
                     img.src = product.images[index];
-                    item.classList.remove('d-none'); // Asegurarse de que los elementos no están ocultos
+                    item.classList.remove('d-none'); // Asegurarse de que los elementos no estén ocultos
                 } else {
                     item.classList.add('d-none');
                 }
             });
 
-            // Cambios: Actualizar las miniaturas con las imágenes del producto
+            // Actualizar las miniaturas con las imágenes del producto
             const thumbnails = document.querySelectorAll('.img-thumbnail');
             thumbnails.forEach((thumbnail, index) => {
                 if (product.images && product.images[index]) {
                     thumbnail.src = product.images[index];
-                    thumbnail.classList.remove('d-none'); // Asegurarse de que las miniaturas no están ocultas
+                    thumbnail.classList.remove('d-none'); // Asegurarse de que las miniaturas no estén ocultas
                 } else {
                     thumbnail.classList.add('d-none');
                 }
             });
 
-            // Cambios: Mostrar el primer elemento del carrusel si hay imágenes
+            // Mostrar el primer elemento del carrusel si hay imágenes
             if (product.images && product.images.length > 0) {
                 document.querySelector('#productCarousel .carousel-item').classList.remove('d-none');
             }
 
-            // Cambios: Cargar productos relacionados
-            await loadRelatedProducts(product.category);
+            // Mostrar productos relacionados desde el array dentro del producto
+            displayRelatedProducts(product.relatedProducts);
         } else {
             // Producto no encontrado
             document.querySelector('.container-info-product').innerHTML = '<p>Producto no encontrado.</p>';
@@ -57,40 +56,50 @@ async function loadProductInfo() {
     }
 }
 
-//  Función para cargar productos relacionados
-async function loadRelatedProducts(category) {
-    try {
-        const response = await fetch('https://japceibal.github.io/emercado-api/products/all.json');
-        const data = await response.json();
-        const allProducts = data; // Todos los productos
+// Función para mostrar los productos relacionados
+function displayRelatedProducts(relatedProducts) {
+    const relatedProductsContainer = document.querySelector('.container-related-products');
+    relatedProductsContainer.innerHTML = ''; // Limpiar productos anteriores
 
-        //  Filtrar productos por categoría
-        const relatedProducts = allProducts.filter(product => product.category === category && product.id !== productId);
+    relatedProducts.forEach(async relatedProduct => {
+        const relatedProductUrl = `https://japceibal.github.io/emercado-api/products/${relatedProduct.id}.json`;
 
-        //  Mostrar productos relacionados
-        const relatedProductsContainer = document.querySelector('.container-related-products');
-        relatedProductsContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos productos
+        try {
+            const response = await fetch(relatedProductUrl);
+            const productDetails = await response.json();
 
-        relatedProducts.forEach(product => {
-            relatedProductsContainer.innerHTML += `
-                <div class="card">
-                    <div class="card-img-related-product">
-                        <img src="${product.image || 'ruta-a-imagen-por-defecto.jpg'}" alt="${product.name}">
-                    </div>
-                    <div class="info-card">
-                        <div class="text-product">
-                            <h3><label class="category"><i class="fa-solid fa-check"></i> ${product.name}</label></h3>
-                        </div>
-                        <div class="price">${product.cost || 'Precio no disponible'} ${product.currency || 'Moneda no disponible'}</div>
-                    </div>
-                    <div class="description-of-related-products">${product.description || 'Descripción no disponible'}</div>
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('card-list-products');
+
+            productDiv.innerHTML = `
+            <div class="card">
+                <div class="card-img-related-product">
+                    <img src="${productDetails.images[0] || 'ruta-a-imagen-por-defecto.jpg'}" alt="${productDetails.name}">
                 </div>
+                <div class="info-card">
+                    <div class="text-product">
+                        <h3>
+                            <div class="productrelatedname">${productDetails.name}</div>
+                            <label class="category"><i class="fa-solid fa-check"></i> ${productDetails.category}</label>
+                        </h3>
+                    </div>
+                    <div class="price">${productDetails.cost} ${productDetails.currency}</div>
+                </div>
+                <div class="description-of-related-products">${productDetails.description}</div>
+            </div>
             `;
-        });
-    } catch (error) {
-        console.error('Error al cargar los productos relacionados:', error);
-        document.querySelector('.container-related-products').innerHTML = '<p>Proximamente Productos relacionados.</p>';
-    }
+
+            productDiv.addEventListener('click', () => {
+                localStorage.setItem("selectedProductid", productDetails.id);
+                window.location.href = "product-info.html";
+            });
+
+            relatedProductsContainer.appendChild(productDiv);
+
+        } catch (error) {
+            console.error('Error al cargar los detalles del producto relacionado:', error);
+        }
+    });
 }
 
 // Definir elementos de control y variables
