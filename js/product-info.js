@@ -1,5 +1,6 @@
 const productId = localStorage.getItem('selectedProductid'); // Obtener el ID del producto del localStorage
 const url = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+const formReview = document.getElementById('review')
 
 // Función para cargar los detalles del producto
 async function loadProductInfo() {
@@ -102,6 +103,88 @@ function displayRelatedProducts(relatedProducts) {
     });
 }
 
+function saveReview(e) {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const review = {
+    producto: productId,
+    score: data.get('score'),
+    description: data.get('comment'),
+    user: localStorage.getItem('user'),
+    dateTime: new Date().toISOString().slice(0, 19).replace('T', ' ')
+  }
+  createReview(review)
+}
+
+function createReview(review) {
+  const calificaciones_usuarios = document.getElementById('calificacion-usuarios');
+  const commentDiv = document.createElement('div');
+
+  let stars = '';
+  for (let i = 0; i < 5; i++) {
+    if (i < review.score) {
+      stars += '<span class="star">&#9733;</span>'; 
+    } else {
+      stars += '<span class="star empty-star">&#9734;</span>'; 
+    }
+  }
+
+  commentDiv.innerHTML = `
+    <div class="user-info">
+      <strong>${review.user}</strong><div class="user-rating">${stars}</div> <!-- Estrellas pegadas al nombre -->
+    </div>
+    <div class="user-info">
+      <span>Fecha: ${review.dateTime}</span>
+    </div>
+    <div class="comment">
+      <p>${review.description}</p>
+    </div>
+  `;
+
+  // Añadir el comentario al contenedor
+  calificaciones_usuarios.appendChild(commentDiv);
+}
+
+formReview.addEventListener("submit", (e) => {saveReview(e)});
+
+const apiUrl = 'https://japceibal.github.io/emercado-api/products/';
+// Cambia esto al id del producto actual según la URL o lógica que uses
+
+// Función para cargar los datos del producto
+function loadProduct(productId) {
+  fetch(`${apiUrl}${productId}.json`)
+    .then(response => response.json())
+    .then(product => {
+      displayRelatedProducts(product.relatedProducts);
+      // Aquí puedes también actualizar la información del producto principal
+    })
+    .catch(error => console.error('Error al cargar el producto:', error));
+}
+
+// Función para mostrar los productos relacionados
+function displayRelatedProducts(relatedProducts) {
+  const container = document.getElementById('related-products-container');
+  container.innerHTML = ''; // Limpiar productos anteriores
+
+  relatedProducts.forEach(product => {
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('related-product');
+
+    productDiv.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" />
+      <h3>${product.name}</h3>
+    `;
+
+    productDiv.addEventListener('click', () => {
+      loadProduct(product.id); // Al hacer clic, carga el producto relacionado
+    });
+
+    container.appendChild(productDiv);
+  });
+}
+
+// Cargar el producto al cargar la página
+loadProduct(productId);
 // Definir elementos de control y variables
 const btnIncrement = document.getElementById('increment');
 const btnDecrement = document.getElementById('decrement');
@@ -146,8 +229,6 @@ if (toggleAdditionalInformation && contentAdditionalInformation) {
 // Seccion comentarios del producto
 const url_comm = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
 
-const calificaciones_usuarios = document.getElementById('calificacion-usuarios');
-
 fetch(url_comm)
   .then(response => {
     if (!response.ok) {
@@ -157,31 +238,7 @@ fetch(url_comm)
   })
   .then(data => {
     data.forEach(comment => {
-      const commentDiv = document.createElement('div');
-
-      let stars = '';
-      for (let i = 0; i < 5; i++) {
-        if (i < comment.score) {
-          stars += '<span class="star">&#9733;</span>'; 
-        } else {
-          stars += '<span class="star empty-star">&#9734;</span>'; 
-        }
-      }
-
-      commentDiv.innerHTML = `
-        <div class="user-info">
-          <strong>${comment.user}</strong><div class="user-rating">${stars}</div> <!-- Estrellas pegadas al nombre -->
-        </div>
-        <div class="user-info">
-          <span>Fecha: ${comment.dateTime}</span>
-        </div>
-        <div class="comment">
-          <p>${comment.description}</p>
-        </div>
-      `;
-
-      // Añadir el comentario al contenedor
-      calificaciones_usuarios.appendChild(commentDiv);
+      this.createReview(comment)
     });
   })
   .catch(error => console.error('Error al cargar los comentarios:', error));
