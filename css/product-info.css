@@ -5,38 +5,169 @@
 }
 body {
   margin: 0;
-  padding: 100px;
+  padding: 0 75px;
   width: 100vw;
   overflow-x: hidden;
 }
 .container {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
 }
 .navbar {
-    background-color: pink !important;
-    text-align: center !important;
+  background-color: pink !important;
+  text-align: center !important;
 }
-.navbar-nav {
-    width: 100% !important;
-    justify-content: center !important;
+.nav-link {
+  color: #070707 !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
 }
-.navbar .navbar-link {
-    color: white !important;
+.nav-link .dark-mode {
+  color: #ffffff !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
 }
 .navbar .navbar-link:hover {
-color: #f8f9fa !important;
+  color: #f8f9fa !important;
 }
+/* modo claro/modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+body.dark-mode a {
+  color: #ffffff !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode span {
+  color: white;
+}
+/* Contenedor del switch */
+.switch-container {
+  display: inline-block;
+  position: relative;
+}
+
+/* Ocultar el input checkbox */
+.theme-switch-checkbox {
+  display: none;
+}
+
+/* El switch (label) */
+.theme-switch-label {
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 25px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* La "bolita" dentro del switch */
+.switch-ball {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 2; /* Aseguramos que la bola esté encima de los íconos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #ffc107;
+}
+
+/* Mostrar el ícono del sol cuando el switch está desactivado (modo claro) */
+.theme-switch-checkbox:not(:checked) + .theme-switch-label .switch-ball:before {
+  content: "\f185"; /* Código Unicode para el ícono del sol */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+/* Mostrar el ícono de la luna cuando el switch está activado (modo oscuro) */
+.theme-switch-checkbox:checked + .theme-switch-label .switch-ball:before {
+  content: "\f186"; /* Código Unicode para el ícono de la luna */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #007bff;
+}
+
+/* Posicionar los íconos dentro del switch */
+.icon-sun,
+.icon-moon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Posicionar los íconos correctamente */
+.icon-sun {
+  left: 8px; /* Ícono del sol en la izquierda */
+}
+
+.icon-moon {
+  right: 8px; /* Ícono de la luna a la derecha */
+}
+
+/* Mostrar el ícono del sol cuando el switch está desactivado (modo claro) */
+.theme-switch-checkbox:not(:checked) + .theme-switch-label .icon-sun {
+  opacity: 1; /* Hacer el ícono visible en modo claro */
+  z-index: 2;
+}
+
+/* Ocultar el ícono del sol cuando el switch está activado */
+.theme-switch-checkbox:checked + .theme-switch-label .icon-sun {
+  opacity: 0; /* Ocultar el ícono en modo oscuro */
+}
+
+/* Mostrar el ícono de la luna cuando el switch está activado (modo oscuro) */
+.theme-switch-checkbox:checked + .theme-switch-label .icon-moon {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Ocultar el ícono de la luna cuando el switch está desactivado */
+.theme-switch-checkbox:not(:checked) + .theme-switch-label .icon-moon {
+  opacity: 0;
+}
+
+/* Mover la bolita hacia la derecha cuando el switch está activado */
+.theme-switch-checkbox:checked + .theme-switch-label .switch-ball {
+  transform: translateX(
+    30px
+  ); /* Ajusta el desplazamiento según el tamaño del switch */
+}
+
+/* Cambiar el color de fondo cuando el switch está activado */
+.theme-switch-checkbox:checked + .theme-switch-label {
+  background-color: #05192e;
+}
+
+/* fin modo claro/oscuro */
 form {
-    margin-left: auto !important;
-    margin-right: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 .fixed-top {
-    position: fixed !important;
-    top: 0 !important;
-    width: 100% !important;
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
 }
 img {
   max-width: 100%;
@@ -45,7 +176,7 @@ header {
   display: flex;
   align-items: center;
   padding: 30px;
-  justify-content: center;;
+  justify-content: center;
 }
 main {
   display: flex;
@@ -61,27 +192,26 @@ main {
 /* carrusel y miniaturas */
 
 .carousel-inner img {
-    width: 100%;
-    height: 400px; 
-    object-fit: cover;
-  }
-  
-  .img-thumbnail {
-    cursor: pointer;
-    max-height: 70px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
-  .img-thumbnail:hover {
-transform: scale(1.1);
-  }
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.img-thumbnail {
+  cursor: pointer;
+  max-height: 70px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+.img-thumbnail:hover {
+  transform: scale(1.1);
+}
 /* bloque de información */
 
 .categorie-of-product {
   display: inline-flex;
   padding: 5px 10px;
   background-color: #ac2f61;
-  border: 2px solid #ffffff;
   border-radius: 15px;
   font-weight: 400;
   color: white;
@@ -106,7 +236,6 @@ transform: scale(1.1);
 
 .container-price {
   padding-bottom: 20px;
-  border-bottom: 1px solid #e4e4e4;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -119,7 +248,6 @@ transform: scale(1.1);
   display: inline-flex;
   padding: 5px 10px;
   background-color: #fd85a3;
-  border: 2px solid #ffffff;
   border-radius: 15px;
   font-weight: 400;
   color: white;
@@ -150,7 +278,6 @@ transform: scale(1.1);
   display: flex;
   gap: 20px;
   padding-bottom: 30px;
-  border-bottom: #e4e4e4;
 }
 .container-quantity {
   position: relative;
@@ -183,7 +310,7 @@ transform: scale(1.1);
 
 .btn-increment-decrement i {
   font-size: 11px;
-  color: #666;
+  color: #969696;
   cursor: pointer;
 }
 
@@ -217,7 +344,6 @@ transform: scale(1.1);
 .container-additional-information {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid #e4e4e4;
   padding: 10px 0;
   margin-top: 5px;
 }
@@ -275,22 +401,22 @@ transform: scale(1.1);
 /* Diseño responsivo para las tarjetas */
 @media (max-width: 1200px) {
   .card-list-products {
-      flex: 1 1 30%;
-      max-width: 30%;
+    flex: 1 1 30%;
+    max-width: 30%;
   }
 }
 
 @media (max-width: 768px) {
   .card-list-products {
-      flex: 1 1 45%;
-      max-width: 45%;
+    flex: 1 1 45%;
+    max-width: 45%;
   }
 }
 
 @media (max-width: 576px) {
   .card-list-products {
-      flex: 1 1 100%;
-      max-width: 100%;
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }
 
@@ -299,9 +425,19 @@ transform: scale(1.1);
   flex-direction: column;
   align-items: left;
   text-align: left;
-  border: 1px solid #ddd;
   border-radius: 5px;
   padding: 5px;
+}
+body.dark-mode .card {
+  background-color: #1a1919;
+  color: #f7f7f9;
+}
+
+/* Estilos adicionales para el texto dentro de las tarjetas en modo oscuro */
+body.dark-mode .text-product h3,
+body.dark-mode .price,
+body.dark-mode .description-of-related-products {
+  color: #f7f7f9;
 }
 
 .card-img-related-product {
@@ -326,7 +462,6 @@ transform: scale(1.1);
   display: inline-flex;
   padding: 3px 8px;
   background-color: #ac2f61;
-  border: 2px solid #ffffff;
   border-radius: 20px;
   font-weight: 400;
   color: white;
@@ -336,8 +471,8 @@ transform: scale(1.1);
 /* Centrar categoría en pantallas pequeñas */
 @media (max-width: 576px) {
   .category {
-      display: block;
-      text-align: center;
+    display: block;
+    text-align: center;
   }
 }
 
@@ -397,26 +532,25 @@ transform: scale(1.1);
 
 /* Estilo para el área de texto */
 textarea {
-  min-width: 30%;  
+  min-width: 30%;
   resize: none;
   max-height: 200px;
-  border:none;
+  border: none;
   border: 1px solid #666;
   border-radius: 4px;
   background-color: #ededed;
-  
 }
 /*Estilo para el comentario*/
-.comment-container{
+.comment-container {
   font-size: 16px;
   font-weight: 500;
 }
 /*Estilos para estrellas*/
-.container{
+.container {
   flex-direction: column;
   gap: 40px;
 }
-.rating{
+.rating {
   position: relative;
   left: -830px;
   display: flex;
@@ -424,10 +558,10 @@ textarea {
   padding: 30px 40px;
   gap: 4px;
 }
-.rating:nth-child(1){
+.rating:nth-child(1) {
   transform: translateX(-40px);
 }
-.rating input{
+.rating input {
   position: relative;
   width: 40px;
   height: 40px;
@@ -436,44 +570,43 @@ textarea {
   align-items: center;
   cursor: pointer;
   appearance: none;
-  -webkit-appearance:none ;
+  -webkit-appearance: none;
 }
-.rating input::before{
-content: "\f005";
-position: absolute;
-font-family: fontAwesome;
-font-size: 34px;
-color: #111;
-transition: .5s;
+.rating input::before {
+  content: "\f005";
+  position: absolute;
+  font-family: fontAwesome;
+  font-size: 34px;
+  color: #111;
+  transition: 0.5s;
 }
 .rating input:hover ~ input::before,
 .rating input:hover ::before,
 .rating input:checked ~ input::before,
 .rating input:checked::before {
-color: var(--c);
+  color: var(--c);
 }
 /*Estilos para el boton*/
-.boton{
-  background-color: #F36DFF; 
-  color: rgb(0, 0, 0);              
-  padding: 10px 20px;        
-  border: none;              
-  border-radius: 10px;       
-  cursor: pointer;         
-  font-size: 16px;           
+.boton {
+  background-color: #f35079;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.boton:hover{
+.boton:hover {
   background-color: #fcbee9;
 }
 
 /* Estilos para el título "Calificaciones de los usuarios" */
 .titulo-calificaciones {
-  background-color: #ffcccb; /* Fondo rosa claro */
-  border: 1px solid #f5c6cb; /* Borde rosa más oscuro */
+  background-color: #ac2f61; /* Fondo rosa claro */
   border-radius: 10px; /* Bordes redondeados */
   padding: 10px;
-  color: #721c24; /* Texto en un tono rosa oscuro */
+  color: #ffffff; /* Texto en un tono rosa oscuro */
   font-size: 1.5rem;
   margin-bottom: 20px; /* Separación del contenido siguiente */
   max-width: 300px; /* Limitar el ancho del título */
@@ -495,13 +628,18 @@ color: var(--c);
 }
 
 .star {
-  color: #ffc107 !important; 
+  color: #ffc107 !important;
   font-size: 1.5rem; /* Tamaño de las estrellas */
   margin-left: 2px; /* Espacio entre las estrellas */
 }
 
 .empty-star {
   color: #6c757d !important; /* Color gris oscuro */
+}
+
+body.dark-mode .rating input {
+  color: #8a8a8a !important;
+  border: 1px solid #fff;
 }
 
 .user-info span {

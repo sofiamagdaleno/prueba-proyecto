@@ -16,7 +16,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <!-- verificar style contiene un error visual -->
     <link rel="stylesheet" href="css/product-info.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
@@ -45,8 +51,23 @@
             <li class="nav-item">
               <a class="nav-link" href="sell.html">Vender</a>
             </li>
-            <li class="nav-item"></li>
           </ul>
+          <!-- botón claro/oscuro -->
+          <div class="switch-container">
+            <input
+              type="checkbox"
+              id="theme-switch"
+              class="theme-switch-checkbox"
+            />
+            <label for="theme-switch" class="theme-switch-label">
+              <!-- Íconos de sol y luna -->
+              <i class="fa-solid fa-sun icon-sun"></i>
+              <i class="fa-solid fa-moon icon-moon"></i>
+              <span class="switch-ball"></span>
+              <!-- La "bolita" que se mueve -->
+            </label>
+          </div>
+          <!-- fin botón claro/oscuro -->
         </div>
       </div>
     </nav>
@@ -61,28 +82,47 @@
       <!-- Fin alerta de funcionalidad en desarrollo -->
       <div class="container mt-4">
         <!-- Carrusel de producto -->
-        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div
+          id="productCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img id="product-image" src="" class="d-block w-100" alt="Imagen principal del producto">
+              <img
+                id="product-image"
+                src=""
+                class="d-block w-100"
+                alt="Imagen principal del producto"
+              />
             </div>
             <!-- Imágenes secundarias del carrusel -->
             <div class="carousel-item">
-              <img src="" class="d-block w-100" alt="Imagen secundaria 1">
+              <img src="" class="d-block w-100" alt="Imagen secundaria 1" />
             </div>
             <div class="carousel-item">
-              <img src="" class="d-block w-100" alt="Imagen secundaria 2">
+              <img src="" class="d-block w-100" alt="Imagen secundaria 2" />
             </div>
             <div class="carousel-item">
-              <img src="" class="d-block w-100" alt="Imagen secundaria 3">
+              <img src="" class="d-block w-100" alt="Imagen secundaria 3" />
             </div>
           </div>
           <!-- Controles del carrusel -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#productCarousel"
+            data-bs-slide="prev"
+          >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#productCarousel"
+            data-bs-slide="next"
+          >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
@@ -91,34 +131,64 @@
         <!-- Miniaturas debajo del carrusel -->
         <div class="row mt-3">
           <div class="col-3">
-            <img src="" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="0" alt="Miniatura 1">
+            <img
+              src=""
+              class="img-thumbnail"
+              data-bs-target="#productCarousel"
+              data-bs-slide-to="0"
+              alt="Miniatura 1"
+            />
           </div>
           <div class="col-3">
-            <img src="" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="1" alt="Miniatura 2">
+            <img
+              src=""
+              class="img-thumbnail"
+              data-bs-target="#productCarousel"
+              data-bs-slide-to="1"
+              alt="Miniatura 2"
+            />
           </div>
           <div class="col-3">
-            <img src="" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="2" alt="Miniatura 3">
+            <img
+              src=""
+              class="img-thumbnail"
+              data-bs-target="#productCarousel"
+              data-bs-slide-to="2"
+              alt="Miniatura 3"
+            />
           </div>
           <div class="col-3">
-            <img src="" class="img-thumbnail" data-bs-target="#productCarousel" data-bs-slide-to="3" alt="Miniatura 4">
+            <img
+              src=""
+              class="img-thumbnail"
+              data-bs-target="#productCarousel"
+              data-bs-slide-to="3"
+              alt="Miniatura 4"
+            />
           </div>
         </div>
       </div>
-  
+
       <!-- Bloque de información -->
       <div class="container-info-product">
         <div class="name-of-product">
           <h4 id="product-name">Nombre del producto</h4>
         </div>
         <div class="categorie-of-product">
-          <h3><i class="fa-solid fa-check"></i> <span id="product-category">Categoría</span></h3>
+          <h3>
+            <i class="fa-solid fa-check"></i>
+            <span id="product-category">Categoría</span>
+          </h3>
         </div>
         <div class="container-price">
           <span id="product-price">Precio</span>
           <i class="fa-solid fa-chevron-right"></i>
         </div>
         <span class="sold-count-of-product">
-          <h3><i class="fa-solid fa-plus"></i> <span id="product-sold">Vendidos</span></h3>
+          <h3>
+            <i class="fa-solid fa-plus"></i>
+            <span id="product-sold">Vendidos</span>
+          </h3>
         </span>
         <div class="container-add-cart">
           <div class="container-quantity">
@@ -169,17 +239,22 @@
     <form action="" id="review">
       <div class="comment-container">
         <h7>Comentario sobre el producto</h7>
-        <br>
-        <textarea name="comment" id="comment" rows="6" placeholder="Escribe tu comentario aquí..."></textarea>
+        <br />
+        <textarea
+          name="comment"
+          id="comment"
+          rows="6"
+          placeholder="Escribe tu comentario aquí..."
+        ></textarea>
       </div>
       <div class="container">
         <h4>Valoracion</h4>
         <div class="rating">
-          <input type="radio" name="score" style="--c:#F2F24F" value="5">
-          <input type="radio" name="score" style="--c:#F2F24F" value="4">
-          <input type="radio" name="score" style="--c:#F2F24F" value="3">
-          <input type="radio" name="score" style="--c:#F2F24F" value="2">
-          <input type="radio" name="score" style="--c:#F2F24F" value="1">
+          <input type="radio" name="score" style="--c: #f2f24f" value="5" />
+          <input type="radio" name="score" style="--c: #f2f24f" value="4" />
+          <input type="radio" name="score" style="--c: #f2f24f" value="3" />
+          <input type="radio" name="score" style="--c: #f2f24f" value="2" />
+          <input type="radio" name="score" style="--c: #f2f24f" value="1" />
         </div>
       </div>
       <div class="submit-container">
@@ -192,7 +267,7 @@
         <h2>Productos relacionados</h2>
       </div>
     </section>
-   
+
     <section class="container-related-products">
       <!-- Acá se insertarán los productos relacionados mediante JavaScript -->
     </section>
