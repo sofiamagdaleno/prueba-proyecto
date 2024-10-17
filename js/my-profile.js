@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
  // Verificar si el usuario está logueado
- if (!localStorage.getItem('userEmail')) {
+ if (!localStorage.getItem('user')) {
     window.location.href = 'login.html';
 }
 
@@ -23,13 +23,6 @@ form.addEventListener('submit', function(e) {
         form.reportValidity();
     }
 });
-// Manejar cierre de sesión
-profileButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    localStorage.removeItem('userEmail');
-    window.location.href = 'login.html';
-});
-
 // Manejar cambio de foto de perfil
 profilePh.addEventListener('change', function(e) {
     const file = e.target.files[0];
@@ -50,8 +43,8 @@ profilePh.addEventListener('change', function(e) {
             document.getElementById(key).value = value;
         }
     }
-    document.getElementById('nusuario').innerText=localStorage.getItem('userEmail') || 'Usuario';
-    document.getElementById('email').value = localStorage.getItem('userEmail') || '';
+    document.getElementById('usuario').innerText=localStorage.getItem('user') || 'Usuario';
+    document.getElementById('email').value = localStorage.getItem('user') || '';
     profilePic.src = localStorage.getItem('profilePic') || '/api/placeholder/150/150';
 }
 
@@ -64,7 +57,7 @@ function saveProfileData() {
         telefono: document.getElementById('tel').value
     };
     localStorage.setItem('profileData', JSON.stringify(profileData));
-    localStorage.setItem('userEmail', document.getElementById('email').value);
+    localStorage.setItem('user', document.getElementById('email').value);
 }
 });
 

@@ -22,4 +22,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     document.getElementById('user').textContent = usuario;
+
+    // Escucha el clic en el botón de "Cerrar sesión"
+document.getElementById('logout').addEventListener('click', function(e) {
+    e.preventDefault(); // Evita la acción predeterminada del enlace
+    // Aquí puedes eliminar las credenciales del usuario ejemplo con localStorage 
+    localStorage.removeItem('usuarioAutenticado'); 
+    // Redirigir a la pantalla de inicio de sesión
+    window.location.href = 'login.html';
+});
 });

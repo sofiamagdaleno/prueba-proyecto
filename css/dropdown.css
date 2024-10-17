@@ -1,0 +1,37 @@
+/* Cambia el contenedor del nombre de usuario*/
+.nav-item-dropdown{
+  display: flex;
+  padding: 10px 20px;
+}
+/* Cambia el color del nombre de usuario */
+.nav-link-dropdown-toggle{
+  font-weight: bold;
+  justify-content: space-between;
+  padding: 10px 20px;
+  color:#ffffff80;
+}
+.nav-link-dropdown-toggle:hover{
+    color: #f1a1ed;
+}
+/* Cambia el color de fondo del menú desplegable */
+.dropdown-menu {
+    background-color: rgb(255, 255, 255); /* Color claro para el fondo */
+    border: 1px solid #e4e9ee; /* Borde claro */
+}
+
+/* Cambia el color del texto de los elementos del menú */
+.dropdown-item {
+    color: #000000; /* Color oscuro para el texto */
+}
+
+/* Cambia el color del texto al pasar el mouse */
+.dropdown-item:hover {
+    background-color: #f1a1ed; /* Color de fondo al pasar el mouse */
+    color: #ff00f2; /* Color del texto al pasar el mouse */
+}
+
+/* Estilo para el separador */
+.dropdown-divider {
+    background-color: #6c757d; /* Color del separador */
+}
+
