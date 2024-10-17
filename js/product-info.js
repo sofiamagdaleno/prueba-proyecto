@@ -140,8 +140,23 @@ function saveReview(e) {
     user: localStorage.getItem("user"),
     dateTime: new Date().toISOString().slice(0, 19).replace("T", " "),
   };
+  
+  // Obtener comentarios existentes desde localStorage
+  let savedReviews = JSON.parse(localStorage.getItem(`reviews_${productId}`)) || [];
+  
+  // Añadir el nuevo comentario al array de comentarios
+  savedReviews.push(review);
+  
+  // Guardar el array actualizado en localStorage
+  localStorage.setItem(`reviews_${productId}`, JSON.stringify(savedReviews));
+  
+  // Mostrar el nuevo comentario en la página
   createReview(review);
+  
+  // Limpiar el formulario después de guardar
+  e.target.reset();
 }
+
 
 // Función para crear y mostrar la reseña
 function createReview(review) {
@@ -271,5 +286,16 @@ themeSwitchCheckbox.addEventListener("change", toggleDarkMode);
 loadThemeFromLocalStorage();
 
 // fin botón claro/oscuro
+function loadReviews() {
+  let savedReviews = JSON.parse(localStorage.getItem(`reviews_${productId}`)) || [];
+
+  // Mostrar cada comentario guardado
+  savedReviews.forEach((review) => {
+    createReview(review);
+  });
+}
 // Cargar los detalles del producto al cargar la página
-window.onload = loadProductInfo;
+window.onload = () => {
+  loadProductInfo();
+  loadReviews(); // Cargar comentarios guardados
+};
