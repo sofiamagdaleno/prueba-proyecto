@@ -10,6 +10,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropdown.css" rel="stylesheet">
+  <link href="css/theme.css" rel="stylesheet">
 </head>
 
 <body>
@@ -43,6 +44,20 @@
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
             <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+            <div class="switch-container">
+              <input
+                type="checkbox"
+                id="theme-switch"
+                class="theme-switch-checkbox"
+              />
+              <label for="theme-switch" class="theme-switch-label">
+                <!-- Íconos de sol y luna -->
+                <i class="fa-solid fa-sun icon-sun"></i>
+                <i class="fa-solid fa-moon icon-moon"></i>
+                <span class="switch-ball"></span>
+                <!-- La "bolita" que se mueve -->
+              </label>
+            </div>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" id="logout">Cerrar sesión</a></li>
           </ul>
@@ -104,6 +119,11 @@
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
   <script src="js/index.js"></script>
+  <script src="js/theme.js"></script>
+  <script
+      src="https://kit.fontawesome.com/ed408aa28c.js"
+      crossorigin="anonymous"
+    ></script>
 </body>
 
 </html>

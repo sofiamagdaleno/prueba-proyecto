@@ -5,6 +5,16 @@
   font-family: 'Verdana', serif !important;
 }
 
+body.dark-mode .card-body {
+  background-color: #444; /* Color de fondo oscuro */
+  color: white; /* Texto claro */
+}
+body.dark-mode .container {
+  background-color: #222; /* Fondo más oscuro */
+  color: white; /* Texto claro */
+}
+
+
 .jumbotron .display-4 {
   font-weight: bold;
 }
@@ -86,6 +96,26 @@ footer p {
 
 .site-header .dropdown-menu a {
   color: black;
+}
+
+body.dark-mode .site-header {
+  background-color: #111; 
+  color: white; 
+}
+
+body.dark-mode footer {
+  background-color: #111; 
+  color: white; 
+}
+
+body.dark-mode a {
+  color: #9dffff; 
+}
+
+body.dark-mode button {
+  background-color: #555; 
+  color: white; 
+  border-color: #777; 
 }
 
 .dropzone {
@@ -243,11 +273,21 @@ a.custom-card:hover {
   }
 }
 
+/* modo oscuro index */
+body.dark-mode .dropdown-menu {
+  background-color: #343a40; 
+  color: #ffffff; 
+}
 
+body.dark-mode .dropdown-menu .dropdown-item {
+  color: #ffffff; 
+}
 
+body.dark-mode .dropdown-menu .dropdown-item:hover {
+  background-color: #a37a86;
+}
 
-
-  
+/* fin modo oscuro */
 /*css login*/
 
 .alert {

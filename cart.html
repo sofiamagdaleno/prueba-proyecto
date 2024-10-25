@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,6 +8,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/theme.css" rel="stylesheet">
+  <link href="css/cart.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,13 +30,69 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
+          <div class="switch-container">
+            <input
+              type="checkbox"
+              id="theme-switch"
+              class="theme-switch-checkbox"
+            />
+            <label for="theme-switch" class="theme-switch-label">
+              <i class="fa-solid fa-sun icon-sun"></i>
+              <i class="fa-solid fa-moon icon-moon"></i>
+              <span class="switch-ball"></span>
+            </label>
+          </div>
         </ul>
       </div>
     </div>
   </nav>
   <main>
+    <header>
+      <h1>Carrito de Compras</h1>
+    </header>
+    <section class="cart-items">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Moneda</th>
+            <th>Costo</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="product-1">
+            <td>
+              <button class="remove-item"><i class="fa-solid fa-xmark"></i></button>
+              <div class="product-info">
+                <img src="ruta-imagen.jpg" alt="Nombre del producto" class="product-image">
+                <h2 class="product-name">Nombre del Producto</h2>
+              </div>
+            </td>
+            <td class="product-currency">USD</td>
+            <td class="product-price">$10.00</td>
+            <td class="product-quantity">
+              <div class="container-quantity">
+                <input type="number" value="1" min="1" class="input-quantity" id="quantity">
+              </div>
+              <div class="btn-increment-decrement">
+                <i class="fa-solid fa-chevron-up" id="increment"></i>
+                <i class="fa-solid fa-chevron-down" id="decrement"></i>
+              </div>
+            </td>
+            <td class="product-subtotal">$10.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <aside class="cart-summary">
+      <h3>Resumen de Compra</h3>
+      <p>Subtotal: $<span id="subtotal">0.00</span></p>
+      <button id="checkout-button">Ir a pagar</button>
+    </aside>
+    
     <div class="container">
       <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
@@ -62,6 +119,10 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/theme.js"></script>
+  <script
+      src="https://kit.fontawesome.com/ed408aa28c.js"
+      crossorigin="anonymous"
+    ></script>
 </body>
-
 </html>

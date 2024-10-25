@@ -130,3 +130,28 @@ h1 {
   outline: none;
   width: 250px;
 }
+
+/* Modo oscuro para las cards */
+body.dark-mode .product {
+  background-color: #333; 
+  color: white; 
+  border: 1px solid #2e2e2e; 
+}
+
+body.dark-mode .product .product-details {
+  background-color: #2e2e2e; 
+  color: white; 
+}
+
+body.dark-mode .product-price {
+  background-color: #2e2e2e; 
+  color: white; 
+}
+
+body.dark-mode .product img {
+  filter: brightness(0.8); 
+}
+
+.switch-container {
+  margin-top: 5px;
+}
