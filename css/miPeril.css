@@ -11,8 +11,10 @@ body {
   text-align: center;
 }
 
+
 #campos {
   margin-right: 7rem;
+    margin-bottom: 20px;
 }
 
 #campos .form-control {
@@ -56,6 +58,10 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+#profilePic {
+    width: 100%;
 }
 
 @media (min-width: 768px) {
