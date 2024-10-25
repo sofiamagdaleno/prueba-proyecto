@@ -1,49 +1,55 @@
-h1{
-    background-color: rgb(253, 125, 221);
-   display:inline-block;
-   text-align: center;
-   padding: 1rem 20rem;
+h1 {
+  background-color: rgb(253, 125, 221);
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 20rem;
   margin-top: 6rem;
   margin-left: 15rem;
-    
 }
-body{
-    text-align: center;
+
+body {
+  text-align: center;
 }
-#campos{
+
+
+#campos {
+  margin-right: 7rem;
     margin-bottom: 20px;
 }
+
 #campos .form-control {
-    font-size: small;
-    
+  max-width: 18rem;
+  font-size: small;
 }
-#profileButton{
-    color: rgb(255, 247, 252);
-    background-color: rgb(241, 152, 215);
-    color: black;
-    border: none;
-    padding: 1rem;
-    margin-left: 40rem;
-    cursor: pointer;
+
+#profileButton {
+  color: rgb(255, 247, 252);
+  background-color: rgb(241, 152, 215);
+  color: black;
+  border: none;
+  padding: 1rem;
+  margin-left: 40rem;
+  cursor: pointer;
 }
-#SwitchCheck{
-    background-color: rgb(255, 97, 208);
-    border: none;
+
+#SwitchCheck {
+  background-color: rgb(255, 97, 208);
+  border: none;
 }
 
 .profile-image-container {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-bottom: 20px;
 }
 
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -60,6 +66,43 @@ body{
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
-    font-size: 3.5rem;
+      font-size: 3.5rem;
   }
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: white; 
+}
+
+body.dark-mode h1 {
+  background-color: rgb(209, 110, 156); 
+}
+
+body.dark-mode #campos .form-control {
+  background-color: #333; 
+  color: rgb(255, 255, 255) !important; 
+  border: 1px solid #555; 
+}
+
+body.dark-mode span {
+  color: black !important;
+}
+body.dark-mode #profileButton {
+  background-color: rgb(241, 152, 215);
+  color: white; 
+}
+
+body.dark-mode #SwitchCheck {
+  background-color: #c26993; 
+  border: none;
+}
+
+body.dark-mode .profile-image-container {
+  border: 2px solid #fff; 
+}
+
+.switch-container {
+  margin-top: 5px;
 }

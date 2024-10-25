@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/theme.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,8 +31,20 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
+          <div class="switch-container">
+            <input
+              type="checkbox"
+              id="theme-switch"
+              class="theme-switch-checkbox"
+            />
+            <label for="theme-switch" class="theme-switch-label">
+              <!-- Íconos de sol y luna -->
+              <i class="fa-solid fa-sun icon-sun"></i>
+              <i class="fa-solid fa-moon icon-moon"></i>
+              <span class="switch-ball"></span>
+              <!-- La "bolita" que se mueve -->
+            </label>
+          </div>
         </ul>
       </div>
     </div>
@@ -100,6 +113,11 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/categories.js"></script>
+  <script src="js/theme.js"></script>
+  <script
+      src="https://kit.fontawesome.com/ed408aa28c.js"
+      crossorigin="anonymous"
+    ></script>
 </body>
 
 </html>

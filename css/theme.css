@@ -1,0 +1,129 @@
+/* modo claro/modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+  body.dark-mode a {
+    color: #ffffff !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+  }
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3,
+  body.dark-mode p,
+  body.dark-mode span {
+    color: white;
+  }
+  /* Contenedor del switch */
+  .switch-container {
+    display: inline-block;
+    position: relative;
+  }
+  
+  /* Ocultar el input checkbox */
+  .theme-switch-checkbox {
+    display: none;
+  }
+  
+  /* El switch (label) */
+  .theme-switch-label {
+    display: block;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* La "bolita" dentro del switch */
+  .switch-ball {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 2; /* Aseguramos que la bola esté encima de los íconos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #ffc107;
+  }
+  
+  /* Mostrar el ícono del sol cuando el switch está desactivado (modo claro) */
+  .theme-switch-checkbox:not(:checked) + .theme-switch-label .switch-ball:before {
+    content: "\f185"; /* Código Unicode para el ícono del sol */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+  
+  /* Mostrar el ícono de la luna cuando el switch está activado (modo oscuro) */
+  .theme-switch-checkbox:checked + .theme-switch-label .switch-ball:before {
+    content: "\f186"; /* Código Unicode para el ícono de la luna */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #007bff;
+  }
+  
+  /* Posicionar los íconos dentro del switch */
+  .icon-sun,
+  .icon-moon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  
+  /* Posicionar los íconos correctamente */
+  .icon-sun {
+    left: 8px; /* Ícono del sol en la izquierda */
+  }
+  
+  .icon-moon {
+    right: 8px; /* Ícono de la luna a la derecha */
+  }
+  
+  /* Mostrar el ícono del sol cuando el switch está desactivado (modo claro) */
+  .theme-switch-checkbox:not(:checked) + .theme-switch-label .icon-sun {
+    opacity: 1; /* Hacer el ícono visible en modo claro */
+    z-index: 2;
+  }
+  
+  /* Ocultar el ícono del sol cuando el switch está activado */
+  .theme-switch-checkbox:checked + .theme-switch-label .icon-sun {
+    opacity: 0; /* Ocultar el ícono en modo oscuro */
+  }
+  
+  /* Mostrar el ícono de la luna cuando el switch está activado (modo oscuro) */
+  .theme-switch-checkbox:checked + .theme-switch-label .icon-moon {
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  /* Ocultar el ícono de la luna cuando el switch está desactivado */
+  .theme-switch-checkbox:not(:checked) + .theme-switch-label .icon-moon {
+    opacity: 0;
+  }
+  
+  /* Mover la bolita hacia la derecha cuando el switch está activado */
+  .theme-switch-checkbox:checked + .theme-switch-label .switch-ball {
+    transform: translateX(
+      30px
+    ); /* Ajusta el desplazamiento según el tamaño del switch */
+  }
+  
+  /* Cambiar el color de fondo cuando el switch está activado */
+  .theme-switch-checkbox:checked + .theme-switch-label {
+    background-color: #05192e;
+  }
+  
+  /* fin modo claro/oscuro */
+
