@@ -7,7 +7,7 @@ body {
     text-align: center;
   }
   
-  .cart-items {
+  .cart-items-section {
     padding: 10px;
   }
   
@@ -34,7 +34,7 @@ body {
     border: 1px solid #ddd;
   }
   
-  .cart-item img {
+  .cart-item-section img {
     width: 80px;
     height: auto;
     margin-bottom: 5px;
