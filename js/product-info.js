@@ -250,6 +250,119 @@ if (toggleAdditionalInformation && contentAdditionalInformation) {
     contentAdditionalInformation.classList.toggle("hidden");
   });
 }
+// Función para redirigir al carrito
+function redirectToCart() {
+  window.location.href = "cart.html"; // Cambia "cart.html" por la ruta a tu página de carrito
+}
+
+// Event listener para el botón de ir al carrito
+const btnBuy = document.querySelector(".btn-buy");
+btnBuy.addEventListener("click", () => {
+  // Guardar datos del producto en localStorage
+  const quantity = parseInt(inputQuantity.value) || 1;
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  const productToAdd = {
+    id: productId,
+    name: document.getElementById("product-name").textContent,
+    price: document.getElementById("product-price").textContent,
+    quantity: quantity,
+  };
+
+  // Añadir el producto al carrito
+  cartItems.push(productToAdd);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+  // Redirigir a la página del carrito
+  redirectToCart();
+});
+
+// Cargar la información del producto al inicio
+loadProductInfo();
+
+// Event listener para el botón de seguir comprando
+const btnSeguir = document.querySelector(".btn-seguir");
+btnSeguir.addEventListener("click", () => {
+  // Guardar datos del producto en localStorage
+  const quantity = parseInt(inputQuantity.value) || 1;
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  const productToAdd = {
+    id: productId,
+    name: document.getElementById("product-name").textContent,
+    price: document.getElementById("product-price").textContent,
+    quantity: quantity,
+  };
+
+  // Añadir el producto al carrito
+  cartItems.push(productToAdd);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+  // Mostrar mensaje de confirmación
+  showConfirmationMessage(productToAdd);
+});
+
+// Función para mostrar mensaje de confirmación
+function showConfirmationMessage(product) {
+  const confirmationDiv = document.createElement("div");
+  confirmationDiv.classList.add("confirmation-message");
+  confirmationDiv.innerHTML = `
+    Se ha añadido ${product.name} (x${product.quantity}) al carrito. 
+    <br>
+    <button class="continue-shopping">Continuar comprando</button>
+  `;
+  document.body.appendChild(confirmationDiv);
+
+  // Agregar evento para el botón de continuar comprando
+  const continueButton = confirmationDiv.querySelector(".continue-shopping");
+  continueButton.addEventListener("click", () => {
+    confirmationDiv.remove(); // Eliminar el mensaje de confirmación
+  });
+
+  // Eliminar el mensaje después de 3 segundos si no se ha hecho clic en el botón
+  setTimeout(() => {
+    if (confirmationDiv) {
+      confirmationDiv.remove();
+    }
+  }, 3000);
+}
+
+// botón claro/oscuro
+// Referencia al input del switch
+const themeSwitchCheckbox = document.getElementById("theme-switch");
+
+// Función para cambiar entre modo oscuro y claro
+function toggleDarkMode() {
+  const darkModeEnabled = document.body.classList.toggle("dark-mode");
+
+  // Guardar la preferencia en localStorage
+  if (darkModeEnabled) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+}
+
+// Cargar el tema guardado desde localStorage al cargar la página
+function loadThemeFromLocalStorage() {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    themeSwitchCheckbox.checked = true; // Marcar el checkbox si es modo oscuro
+  } else {
+    document.body.classList.remove("dark-mode");
+    themeSwitchCheckbox.checked = false; // Desmarcar el checkbox si es modo claro
+  }
+}
+
+// Añadir event listener para el switch
+themeSwitchCheckbox.addEventListener("change", toggleDarkMode);
+
+// Ejecutar al cargar la página
+loadThemeFromLocalStorage();
+
+// fin botón claro/oscuro
 function loadReviews() {
   let savedReviews = JSON.parse(localStorage.getItem(`reviews_${productId}`)) || [];
 
