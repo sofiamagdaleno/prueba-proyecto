@@ -210,6 +210,19 @@ main {
   color: white;
   background-color: #4e0b26;
 }
+.btn-seguir{
+border: none;
+  background-color: #f35079;
+  padding: 10px 200px;
+  color: #f7f7f9;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 5px;
+}
 .hidden {
   display: none;
 }
