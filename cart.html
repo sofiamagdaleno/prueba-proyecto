@@ -50,7 +50,7 @@
     <header>
       <h1>Carrito de Compras</h1>
     </header>
-    <section class="cart-items">
+    <section class="cart-items-section">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -61,28 +61,8 @@
             <th>Subtotal</th>
           </tr>
         </thead>
-        <tbody>
-          <tr id="product-1">
-            <td>
-              <button class="remove-item"><i class="fa-solid fa-xmark"></i></button>
-              <div class="product-info">
-                <img src="ruta-imagen.jpg" alt="Nombre del producto" class="product-image">
-                <h2 class="product-name">Nombre del Producto</h2>
-              </div>
-            </td>
-            <td class="product-currency">USD</td>
-            <td class="product-price">$10.00</td>
-            <td class="product-quantity">
-              <div class="container-quantity">
-                <input type="number" value="1" min="1" class="input-quantity" id="quantity">
-              </div>
-              <div class="btn-increment-decrement">
-                <i class="fa-solid fa-chevron-up" id="increment"></i>
-                <i class="fa-solid fa-chevron-down" id="decrement"></i>
-              </div>
-            </td>
-            <td class="product-subtotal">$10.00</td>
-          </tr>
+        <tbody class="cart-items"> 
+          <!-- El producto será insertado aquí por JavaScript -->
         </tbody>
       </table>
     </section>
