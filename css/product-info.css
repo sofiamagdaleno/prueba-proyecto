@@ -205,6 +205,7 @@ main {
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-top: 5px;
+  font-weight: bold !important;
 }
 .btn-buy:hover {
   color: white;
@@ -212,17 +213,23 @@ main {
 }
 .btn-seguir{
 border: none;
-  background-color: #f35079;
+  background-color: #f893ac;
   padding: 10px 200px;
   color: #f7f7f9;
   display: flex;
   align-items: center;
   gap: 5px;
-  font-weight: 300;
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-top: 5px;
+  font-weight: bold !important;
 }
+.btn-seguir:hover {
+  color: white;
+  background-color: #4e0b26;
+}
+
 .hidden {
   display: none;
 }
