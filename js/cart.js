@@ -6,10 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const tablaProductos = document.querySelector('.cart-items tbody');
 
   // Si no hay productos, mostrar mensaje de carrito vacío
-  if (cartItems.length === 0) {
-    tablaProductos.innerHTML = `<tr><td colspan="5">El carrito está vacío</td></tr>`;
-    return;
-  }
+  function renderCartItems() {
+    tablaProductos.innerHTML = ""; // Limpiar la tabla antes de volver a renderizar
+
+    if (cartItems.length === 0) {
+      tablaProductos.innerHTML = `<tr><td colspan="5">El carrito está vacío</td></tr>`;
+      return;
+    }
 
   // Iterar sobre cada producto en el carrito
   cartItems.forEach((product, index) => {
@@ -19,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const celdaProducto = document.createElement('td');
     celdaProducto.innerHTML = `
     <div class="product-container">
-    <button class="remove-item"><i class="fa-solid fa-xmark"></i></button>
+    <button class="remove-item" data-index="${index}"><i class="fa-solid fa-xmark"></i></button>
     <div class="product-info">
       <img src="${product.image}" alt="${product.name}" class="product-image" style="width: 100px; height: auto;">
       <h2 class="product-name">${product.name}</h2>
@@ -80,5 +83,16 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-});
+   // Eliminar producto al hacer clic en la "X"
+   document.querySelectorAll('.remove-item').forEach(button => {
+    button.addEventListener('click', function() {
+      const index = this.getAttribute('data-index');
+      cartItems.splice(index, 1);  // Eliminar el producto del array
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      renderCartItems();  // Volver a renderizar la tabla
+    });
+  });
+}
 
+renderCartItems();
+});
