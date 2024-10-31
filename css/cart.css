@@ -178,3 +178,43 @@ body {
   body.dark-mode th {
     color: white;
   }
+
+  .product-info {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+  }
+  
+  .product-image {
+    width: 100px; 
+    height: auto;
+  }
+  
+  .product-name {
+    font-size: 1rem; 
+  }
+
+  .product-container {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+  }
+  
+  .remove-item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .product-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+  }
+
+  
+  .product-name {
+    font-size: 1rem; 
+  }
+  
