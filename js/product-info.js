@@ -267,6 +267,7 @@ btnBuy.addEventListener("click", () => {
     name: document.getElementById("product-name").textContent,
     price: document.getElementById("product-price").textContent,
     quantity: quantity,
+    image: document.getElementById("product-image").src,
   };
 
   // Añadir el producto al carrito
@@ -292,6 +293,7 @@ btnSeguir.addEventListener("click", () => {
     name: document.getElementById("product-name").textContent,
     price: document.getElementById("product-price").textContent,
     quantity: quantity,
+    image: document.getElementById("product-image").src,
   };
 
   // Añadir el producto al carrito
