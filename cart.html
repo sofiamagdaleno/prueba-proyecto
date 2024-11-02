@@ -75,7 +75,11 @@
     </section>    
     <aside class="cart-summary">
       <h3>Resumen de Compra</h3>
-      <p>Subtotal: $<span id="subtotal">0.00</span></p>
+      <select id="currency-selector">
+        <option value="USD">USD</option>
+        <option value="UYU">UYU</option>
+      </select>
+      <p>Total: <span id="total">0.00</span> <span id="currency-label">USD</span></p>
       <button id="checkout-button">Ir a pagar</button>
     </aside>
     
