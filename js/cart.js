@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Obtener elementos del carrito del localStorage
   let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  
 
   // Seleccionar la tabla donde se mostrarán los productos
   const tablaProductos = document.querySelector('.cart-items tbody');
@@ -8,6 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const currencySelector = document.getElementById('currency-selector');
   const totalDisplay = document.getElementById('total');
   const currencyLabel = document.getElementById('currency-label');
+  const badge = document.getElementById("badge-carrito");
+
+  //contador badge 
+    document.getElementById("badge-carrito").innerHTML = cartItems.length;
+    //actualiza el contador
+function actualizarBadge(){
+  badge.innerHTML = cartItems.length
+}
+
 
   // Función para extraer la moneda del precio
   function obtenerMoneda(price) {
@@ -131,7 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
       renderCartItems();  // Volver a renderizar la tabla
     });
   });
+  actualizarBadge();
 }
+
 
  // Cambiar moneda y recalcular total
  currencySelector.addEventListener('change', calcularTotal);

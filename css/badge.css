@@ -1,0 +1,12 @@
+#mi-carrito{
+    background-color: rgb(255,173,245);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+@media (max-width: 576px){
+.categori {
+    display: block;
+    text-align: center;
+}
+}
