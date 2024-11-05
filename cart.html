@@ -75,6 +75,68 @@
         </tbody>
       </table>
     </section>    
+        <!-- Botón para abrir el modal  -->
+        <div class="d-flex justify-content-end my-3">
+          <button type="button" class="btn btn-rosado" data-bs-toggle="modal" data-bs-target="#deliveryModal">
+              Comprar
+          </button>
+      </div>
+      
+      <!-- Modal de Detalle de la Entrega -->
+      <div class="modal fade" id="deliveryModal" tabindex="-1" aria-labelledby="deliveryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <!-- Imagen en la parte superior izquierda -->
+              <img src="img/mapa.png" alt="Imagen de entrega" class="img-top-left">
+              
+              <h5 class="modal-title ms-3" id="deliveryModalLabel">Detalles de la entrega</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Sección de Dirección de Envío -->
+              <h6>Dirección de envío</h6>
+              <form id="deliveryForm">
+                <div class="mb-3">
+                  <label for="department" class="form-label">Departamento</label>
+                  <input type="text" class="form-control" id="department" placeholder="Ingresa el departamento" required>
+                </div>
+                <div class="mb-3">
+                  <label for="city" class="form-label">Localidad</label>
+                  <input type="text" class="form-control" id="city" placeholder="Ingresa la localidad" required>
+                </div>
+                <div class="mb-3">
+                  <label for="street" class="form-label">Calle</label>
+                  <input type="text" class="form-control" id="street" placeholder="Ingresa la calle" required>
+                </div>
+                <div class="mb-3">
+                  <label for="number" class="form-label">Número</label>
+                  <input type="number" class="form-control" id="number" placeholder="Número de puerta" required>
+                </div>
+                <div class="mb-3">
+                  <label for="corner" class="form-label">Esquina</label>
+                  <input type="text" class="form-control" id="corner" placeholder="Esquina" required>
+                </div>
+              </form>
+              
+              <!-- Sección de Tipo de Envío -->
+              <h6>Tipo de envío</h6>
+              <div class="mb-3">
+                <label for="shippingType" class="form-label">Selecciona el tipo de envío</label>
+                <select class="form-select" id="shippingType" aria-label="Tipo de envío">
+                  <option value="premium" data-cost="15">Premium 2 a 5 días (15%)</option>
+                  <option value="express" data-cost="7">Express 5 a 8 días (7%)</option>
+                  <option value="standard" data-cost="5">Standard 12 a 15 días (5%)</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-rosado" >Finalizar Compra</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <aside class="cart-summary">
       <h3>Resumen de Compra</h3>
       <select id="currency-selector">

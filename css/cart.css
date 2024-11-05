@@ -218,3 +218,43 @@ body {
     font-size: 1rem; 
   }
   
+.modal-body {
+  padding-left: 130px !important; /* Espacio para la imagen en la izquierda */
+}
+.img-top-left {
+  width: 80px; /* Ajusta el tamaño según prefieras */
+  height: auto;
+  position: absolute;
+  top: 90px;
+  left: 15px;
+  border-radius: 8px; /* Opcional, para bordes redondeados */
+}
+
+/* Asegura que el título se alinee correctamente */
+.modal-header h5 {
+  margin-left: 130px!important; /* Espacio para evitar que el título se superponga con la imagen */
+}
+
+
+/* Estilo para el botón Detalle de la entrega */
+.btn-rosado {
+ background-color: #f35079 !important; /* Rosado claro */
+  border-color: #f35079 !important;
+  color: #fff !important; /* Texto blanco */
+  font-weight: 700!important;
+  cursor: pointer!important;
+  transition: background-color 0.3s ease, color 0.3s ease!important;
+  margin-top: 5px;
+}
+
+
+/* Personaliza el botón del selector de envío */
+.form-select {
+  background-color: #f3b8ca !important; /* Rosado claro */
+  color: #fff; /* Texto blanco */   
+}
+
+.form-select:focus {
+  box-shadow: none;
+  border-color: #f3b8ca!important; /* Color más oscuro al enfocar */
+}
