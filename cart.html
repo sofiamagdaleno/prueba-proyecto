@@ -74,76 +74,174 @@
           <!-- Las filas de productos se agregarán aquí -->
         </tbody>
       </table>
-    </section>    
-        <!-- Botón para abrir el modal  -->
-        <div class="d-flex justify-content-end my-3">
-          <button type="button" class="btn btn-rosado" data-bs-toggle="modal" data-bs-target="#deliveryModal">
-              Comprar
-          </button>
-      </div>
-      
-      <!-- Modal de Detalle de la Entrega -->
-      <div class="modal fade" id="deliveryModal" tabindex="-1" aria-labelledby="deliveryModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <!-- Imagen en la parte superior izquierda -->
-              <img src="img/mapa.png" alt="Imagen de entrega" class="img-top-left">
-              
-              <h5 class="modal-title ms-3" id="deliveryModalLabel">Detalles de la entrega</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <!-- Sección de Dirección de Envío -->
-              <h6>Dirección de envío</h6>
-              <form id="deliveryForm">
-                <div class="mb-3">
-                  <label for="department" class="form-label">Departamento</label>
-                  <input type="text" class="form-control" id="department" placeholder="Ingresa el departamento" required>
-                </div>
-                <div class="mb-3">
-                  <label for="city" class="form-label">Localidad</label>
-                  <input type="text" class="form-control" id="city" placeholder="Ingresa la localidad" required>
-                </div>
-                <div class="mb-3">
-                  <label for="street" class="form-label">Calle</label>
-                  <input type="text" class="form-control" id="street" placeholder="Ingresa la calle" required>
-                </div>
-                <div class="mb-3">
-                  <label for="number" class="form-label">Número</label>
-                  <input type="number" class="form-control" id="number" placeholder="Número de puerta" required>
-                </div>
-                <div class="mb-3">
-                  <label for="corner" class="form-label">Esquina</label>
-                  <input type="text" class="form-control" id="corner" placeholder="Esquina" required>
-                </div>
-              </form>
-              
-              <!-- Sección de Tipo de Envío -->
-              <h6>Tipo de envío</h6>
-              <div class="mb-3">
-                <label for="shippingType" class="form-label">Selecciona el tipo de envío</label>
-                <select class="form-select" id="shippingType" aria-label="Tipo de envío">
-                  <option value="premium" data-cost="15">Premium 2 a 5 días (15%)</option>
-                  <option value="express" data-cost="7">Express 5 a 8 días (7%)</option>
-                  <option value="standard" data-cost="5">Standard 12 a 15 días (5%)</option>
-                </select>
+    </section>
+    <!-- Botón para abrir el modal  -->
+    <div class="d-flex justify-content-end my-3">
+      <button type="button" class="btn btn-rosado" data-bs-toggle="modal" data-bs-target="#deliveryModal">Comprar</button>
+    </div>
+    
+    <!-- Modal de Detalle de la Entrega -->
+    <div class="modal fade" id="deliveryModal" tabindex="-1" aria-labelledby="deliveryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- Imagen en la parte superior izquierda -->
+            <!-- <img src="img/mapa.png" alt="Imagen de entrega" class="img-top-left"> -->
+            
+            <h5 class="modal-title ms-3" id="deliveryModalLabel">Detalles de la entrega</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="my-3">
+              <h5>Tipos de envío</h5>
+              <div>
+                <input type="radio" class="btn-check" name="deliveryMethod" id="premium" autocomplete="off" checked>
+                <label class="btn btn-outline-rosado" for="premium">Premium 2 a 5 días (15%)</label>
+
+                <input type="radio" class="btn-check" name="deliveryMethod" id="express" autocomplete="off">
+                <label class="btn btn-outline-rosado" for="express">Express 5 a 8 días (7%)</label>
+
+                <input type="radio" class="btn-check" name="deliveryMethod" id="standard" autocomplete="off">
+                <label class="btn btn-outline-rosado" for="standard">Standard 12 a 15 días (5%)</label>
               </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-rosado" >Finalizar Compra</button>
+            <div class="accordion my-3" id="deliveryAddressAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeliveryAddress" aria-expanded="false" aria-controls="collapseDeliveryAddress">
+                    <img src="img/mapa.png" alt="Imagen de entrega" class="me-2" style="height: 32px;">
+                    Dirección de envío
+                  </button>
+                </h2>
+                <div id="collapseDeliveryAddress" class="accordion-collapse collapse" data-bs-parent="#deliveryAddressAccordion">
+                  <div class="accordion-body">
+                    <div class="mb-3">
+                      <label for="department" class="form-label">Departamento</label>
+                      <input type="text" class="form-control" id="department" placeholder="Ingresa el departamento" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="city" class="form-label">Localidad</label>
+                      <input type="text" class="form-control" id="city" placeholder="Ingresa la localidad" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="street" class="form-label">Calle</label>
+                      <input type="text" class="form-control" id="street" placeholder="Ingresa la calle" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="number" class="form-label">Número</label>
+                      <input type="number" class="form-control" id="number" placeholder="Número de puerta" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="corner" class="form-label">Esquina</label>
+                      <input type="text" class="form-control" id="corner" placeholder="Esquina" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <div class="my-3">
+              <h5>Formas de pago</h5>
+              <div class="accordion" id="deliveryAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCreditCard" aria-expanded="false" aria-controls="collapseCreditCard">
+                      <img src="img/credit-card-method.png" alt="Imagen de entrega" class="me-2" style="height: 32px;">
+                      Tarjeta de crédito
+                    </button>
+                  </h2>
+                  <div id="collapseCreditCard" class="accordion-collapse collapse" data-bs-parent="#deliveryAccordion">
+                    <div class="accordion-body">
+                      <div class="mb-3">
+                        <label for="nro" class="form-label">Número de tarjeta</label>
+                        <input type="text" class="form-control" id="nro" placeholder="XXXX XXXX XXXX XXXX" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="expire" class="form-label">Vencimiento</label>
+                        <input type="text" class="form-control" id="expire" placeholder="XX-XXXX" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cvv" placeholder="XXX" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="holder" class="form-label">Nombre del titular</label>
+                        <input type="text" class="form-control" id="holder" placeholder="Nombre completo" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBankTransfer" aria-expanded="false" aria-controls="collapseBankTransfer">
+                      <img src="img/transfer-method.png" alt="Imagen de entrega" class="me-2" style="height: 32px;">
+                      Transferencia bancaria
+                    </button>
+                  </h2>
+                  <div id="collapseBankTransfer" class="accordion-collapse collapse" data-bs-parent="#deliveryAccordion">
+                    <div class="accordion-body">
+                      <div class="mb-3">
+                        <label for="nro" class="form-label">Número de tarjeta</label>
+                        <input type="text" class="form-control" id="nro" placeholder="XXXX XXXX XXXX XXXX" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="origin" class="form-label">Cuenta origen</label>
+                        <input type="text" class="form-control" id="origin" placeholder="XXXXXXXX" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="nroTrans" class="form-label">Número de transacción</label>
+                        <input type="text" class="form-control" id="nroTrans" placeholder="XXXXXXXX" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="receipt" class="form-label">Comprobante de pago</label>
+                        <input class="form-control" type="file" id="receipt" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h5>Resumen de costos</h5>
+              <div class="border border-3 rounded-1 container">
+                <div class="row border-bottom">
+                  <div class="col-6">
+                    <p>Subtotal:</p>
+                  </div>
+                  <div class="col-6 text-end">
+                    <p><span id="currency-label">USD</span> <span id="subtotal-modal">0.00</span></p>
+                  </div>
+                  <div class="col-6">
+                    <p>Envío:</p>
+                  </div>
+                  <div class="col-6 text-end">
+                    <p><span id="currency-label">USD</span> <span id="envio-modal">0.00</span></p>
+                  </div>
+                </div>
+                <div class="row fw-bold">
+                  <div class="col-6">
+                    <p>TOTAL:</p>
+                  </div>
+                  <div class="col-6 text-end">
+                    <p><span id="currency-label">USD</span> <span id="total-modal">0.00</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-rosado" >Finalizar Compra</button>
           </div>
         </div>
       </div>
+    </div>
     <aside class="cart-summary">
       <h3>Resumen de Compra</h3>
       <select id="currency-selector">
         <option value="USD">USD</option>
         <option value="UYU">UYU</option>
       </select>
-      <p>Total: <span id="total">0.00</span> <span id="currency-label">USD</span></p>
+      <p>Total: <span id="total-summary">0.00</span> <span id="currency-label">USD</span></p>
       <button id="checkout-button">Ir a pagar</button>
     </aside>
     

@@ -218,9 +218,9 @@ body {
     font-size: 1rem; 
   }
   
-.modal-body {
-  padding-left: 130px !important; /* Espacio para la imagen en la izquierda */
-}
+/* .modal-body {
+  padding-left: 130px !important;
+} */
 .img-top-left {
   width: 80px; /* Ajusta el tamaño según prefieras */
   height: auto;
@@ -231,20 +231,31 @@ body {
 }
 
 /* Asegura que el título se alinee correctamente */
-.modal-header h5 {
-  margin-left: 130px!important; /* Espacio para evitar que el título se superponga con la imagen */
-}
+/* .modal-header h5 {
+  margin-left: 130px!important;
+} */
 
 
 /* Estilo para el botón Detalle de la entrega */
 .btn-rosado {
- background-color: #f35079 !important; /* Rosado claro */
+  background-color: #f35079 !important; /* Rosado claro */
   border-color: #f35079 !important;
   color: #fff !important; /* Texto blanco */
   font-weight: 700!important;
   cursor: pointer!important;
   transition: background-color 0.3s ease, color 0.3s ease!important;
   margin-top: 5px;
+}
+
+.btn-outline-rosado {
+  border-color: #f35079 !important;
+  color: #f35079 !important;
+}
+
+.btn-check:checked+.btn-outline-rosado {
+  background-color: #f35079 !important;
+  border-color: #f35079 !important;
+  color: #fff !important;
 }
 
 
