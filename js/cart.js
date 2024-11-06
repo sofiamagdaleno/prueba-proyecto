@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const tablaProductos = document.querySelector('.cart-items tbody');
   const valorDolar = 40;
   const currencySelector = document.getElementById('currency-selector');
-  const totalDisplay = document.getElementById('total');
+  const totalDisplay = document.getElementById('total-summary');
   const currencyLabel = document.getElementById('currency-label');
   const badge = document.getElementById("badge-carrito");
 
