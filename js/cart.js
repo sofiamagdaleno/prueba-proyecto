@@ -144,6 +144,85 @@ function actualizarBadge(){
   actualizarBadge();
 }
 
+// Función para cargar los productos del carrito desde localStorage
+function loadCartItems() {
+  return JSON.parse(localStorage.getItem('cartItems')) || [];
+}
+
+
+// Función para calcular el subtotal, convirtiendo precios en UYU a USD si es necesario
+function calculateSubtotal(cartItems) {
+  const valorDolar = 40;
+  return cartItems.reduce((subtotal, item) => {
+    const priceValue = parseFloat(item.price.replace(/[^\d.]/g, ''));
+    const quantity = Number(item.quantity);
+
+
+    // Convertir a USD si el precio está en UYU
+    const isUYU = item.price.includes('UYU');
+    const priceInUSD = isUYU ? priceValue / valorDolar : priceValue;
+
+
+    return subtotal + (priceInUSD * quantity);
+  }, 0);
+}
+
+
+// Función para calcular el costo de envío
+function calculateShippingCost(subtotal, shippingPercentage) {
+  return subtotal * shippingPercentage;
+}
+
+
+// Función para actualizar el resumen de costos
+function updateCostSummary(shippingType) {
+  const cartItems = loadCartItems();
+  const subtotal = calculateSubtotal(cartItems);
+
+
+  // Asigna el porcentaje de envío en función del tipo seleccionado
+  let shippingPercentage = 0;
+  switch (shippingType) {
+    case 'premium':
+      shippingPercentage = 0.15;
+      break;
+    case 'express':
+      shippingPercentage = 0.07;
+      break;
+    case 'standard':
+      shippingPercentage = 0.05;
+      break;
+    default:
+      shippingPercentage = 0;
+  }
+
+
+  // Calcula el costo de envío y el total
+  const shippingCost = calculateShippingCost(subtotal, shippingPercentage);
+  const total = subtotal + shippingCost;
+
+
+  // Muestra los valores en el modal
+  document.getElementById('subtotal-modal').textContent = subtotal.toFixed(2);
+  document.getElementById('envio-modal').textContent = shippingCost.toFixed(2);
+  document.getElementById('total-modal').textContent = total.toFixed(2);
+
+
+  // Establece el símbolo de moneda en USD (ya que ahora todo está en USD)
+  document.getElementById('currency-label').textContent = 'USD';
+}
+
+
+// Configura el evento para los botones `btn-check`
+document.querySelectorAll('input[name="deliveryMethod"]').forEach((option) => {
+  option.addEventListener('change', (event) => {
+    updateCostSummary(event.target.id);
+  });
+});
+
+
+// Inicializa el cálculo con el envío estándar por defecto al cargar la página
+updateCostSummary('standard');
 
  // Cambiar moneda y recalcular total
  currencySelector.addEventListener('change', calcularTotal);

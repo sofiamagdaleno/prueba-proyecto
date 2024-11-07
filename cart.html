@@ -11,7 +11,7 @@
   <link href="css/theme.css" rel="stylesheet">
   <link href="css/cart.css" rel="stylesheet">
   <link href="css/https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="css/https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/badge.css">
  
 </head>
@@ -81,30 +81,28 @@
     </div>
     
     <!-- Modal de Detalle de la Entrega -->
-    <div class="modal fade" id="deliveryModal" tabindex="-1" aria-labelledby="deliveryModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <!-- Imagen en la parte superior izquierda -->
-            <!-- <img src="img/mapa.png" alt="Imagen de entrega" class="img-top-left"> -->
-            
-            <h5 class="modal-title ms-3" id="deliveryModalLabel">Detalles de la entrega</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal fade" id="deliveryModal" tabindex="-1" aria-labelledby="deliveryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title ms-3" id="deliveryModalLabel">Detalles de la entrega</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Tipos de envío -->
+        <div id="shipping-options">
+          <h5>Tipos de envío</h5>
+          <div>
+            <input type="radio" class="btn-check" name="deliveryMethod" id="premium" autocomplete="off" checked>
+            <label class="btn btn-outline-rosado" for="premium">Premium 2 a 5 días (15%)</label>
+
+            <input type="radio" class="btn-check" name="deliveryMethod" id="express" autocomplete="off">
+            <label class="btn btn-outline-rosado" for="express">Express 5 a 8 días (7%)</label>
+
+            <input type="radio" class="btn-check" name="deliveryMethod" id="standard" autocomplete="off">
+            <label class="btn btn-outline-rosado" for="standard">Standard 12 a 15 días (5%)</label>
           </div>
-          <div class="modal-body">
-            <div class="my-3">
-              <h5>Tipos de envío</h5>
-              <div>
-                <input type="radio" class="btn-check" name="deliveryMethod" id="premium" autocomplete="off" checked>
-                <label class="btn btn-outline-rosado" for="premium">Premium 2 a 5 días (15%)</label>
-
-                <input type="radio" class="btn-check" name="deliveryMethod" id="express" autocomplete="off">
-                <label class="btn btn-outline-rosado" for="express">Express 5 a 8 días (7%)</label>
-
-                <input type="radio" class="btn-check" name="deliveryMethod" id="standard" autocomplete="off">
-                <label class="btn btn-outline-rosado" for="standard">Standard 12 a 15 días (5%)</label>
-              </div>
-            </div>
+        </div>
             <div class="accordion my-3" id="deliveryAddressAccordion">
               <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -200,41 +198,42 @@
                 </div>
               </div>
             </div>
-            <div>
-              <h5>Resumen de costos</h5>
-              <div class="border border-3 rounded-1 container">
-                <div class="row border-bottom">
-                  <div class="col-6">
-                    <p>Subtotal:</p>
-                  </div>
-                  <div class="col-6 text-end">
-                    <p><span id="currency-label">USD</span> <span id="subtotal-modal">0.00</span></p>
-                  </div>
-                  <div class="col-6">
-                    <p>Envío:</p>
-                  </div>
-                  <div class="col-6 text-end">
-                    <p><span id="currency-label">USD</span> <span id="envio-modal">0.00</span></p>
-                  </div>
-                </div>
-                <div class="row fw-bold">
-                  <div class="col-6">
-                    <p>TOTAL:</p>
-                  </div>
-                  <div class="col-6 text-end">
-                    <p><span id="currency-label">USD</span> <span id="total-modal">0.00</span></p>
-                  </div>
-                </div>
+            <!-- Resumen de costos -->
+        <div>
+          <h5>Resumen de costos</h5>
+          <div class="border border-3 rounded-1 container">
+            <div class="row border-bottom">
+              <div class="col-6">
+                <p>Subtotal:</p>
+              </div>
+              <div class="col-6 text-end">
+                <p><span id="currency-subtotal">USD</span> <span id="subtotal-modal">0.00</span></p>
+              </div>
+              <div class="col-6">
+                <p>Envío:</p>
+              </div>
+              <div class="col-6 text-end">
+                <p><span id="currency-envio">USD</span> <span id="envio-modal">0.00</span></p>
+              </div>
+            </div>
+            <div class="row fw-bold">
+              <div class="col-6">
+                <p>TOTAL:</p>
+              </div>
+              <div class="col-6 text-end">
+                <p><span id="currency-total">USD</span> <span id="total-modal">0.00</span></p>
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-rosado" >Finalizar Compra</button>
-          </div>
         </div>
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-rosado">Finalizar Compra</button>
+      </div>
     </div>
+  </div>
+</div>
     <aside class="cart-summary">
       <h3>Resumen de Compra</h3>
       <select id="currency-selector">
