@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const totalDisplay = document.getElementById('total-summary');
   const currencyLabel = document.getElementById('currency-label');
   const badge = document.getElementById("badge-carrito");
+  const defaultShipping = 'standard';
+  updateCostSummary(defaultShipping);
+  renderCartItems();
 
   //contador badge 
     document.getElementById("badge-carrito").innerHTML = cartItems.length;
@@ -58,13 +61,12 @@ function actualizarBadge(){
 
     if (cartItems.length === 0) {
       tablaProductos.innerHTML = `<tr><td colspan="5">El carrito está vacío</td></tr>`;
+      updateCostSummary(document.querySelector('input[name="deliveryMethod"]:checked')?.id || 'standard');
       return;
     }
 
-  // Iterar sobre cada producto en el carrito
-  cartItems.forEach((product, index) => {
-    const fila = document.createElement('tr');
-
+    cartItems.forEach((product, index) => {
+      const fila = document.createElement('tr');
     // Columna Producto (nombre e imagen)
     const celdaProducto = document.createElement('td');
     celdaProducto.innerHTML = `
@@ -109,26 +111,24 @@ function actualizarBadge(){
   });
 
   calcularTotal();
+  updateCostSummary(document.querySelector('input[name="deliveryMethod"]:checked')?.id || 'standard');
 
+  
   // Actualizar subtotal en tiempo real cuando se cambia la cantidad
   document.querySelectorAll('.input-quantity').forEach(input => {
-    input.addEventListener('input', function() {
+    input.addEventListener('input', function () {
       const index = this.getAttribute('data-index');
       const newQuantity = parseInt(this.value);
       if (newQuantity > 0) {
         // Actualizar cantidad en cartItems
         cartItems[index].quantity = newQuantity;
-        
-        // Extraer el precio del producto actual y calcular el nuevo subtotal
-        const precioMatch = cartItems[index].price.match(/\d+/g);
-        const precioNumerico = precioMatch ? parseFloat(precioMatch.join('')) : 0;
-        const newSubtotal = precioNumerico * newQuantity;
-        
-        // Actualizar subtotal en la tabla
-        this.closest('tr').querySelector('.subtotal').textContent = `${newSubtotal.toFixed(2)}`;
-
-        // Guardar la actualización en localStorage
+  
+        // Guardar cambios en localStorage
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  
+        // Volver a calcular los costos
+        renderCartItems();
+        updateCostSummary(document.querySelector('input[name="deliveryMethod"]:checked')?.id || 'standard');
       }
     });
   });
@@ -214,9 +214,10 @@ function updateCostSummary(shippingType) {
 
 
 // Configura el evento para los botones `btn-check`
-document.querySelectorAll('input[name="deliveryMethod"]').forEach((option) => {
-  option.addEventListener('change', (event) => {
-    updateCostSummary(event.target.id);
+document.querySelectorAll('input[name="deliveryMethod"]').forEach(option => {
+  option.addEventListener('change', function () {
+    // Actualizar resumen de costos en tiempo real
+    updateCostSummary(this.id);
   });
 });
 
