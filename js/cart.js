@@ -228,4 +228,55 @@ updateCostSummary('standard');
  currencySelector.addEventListener('change', calcularTotal);
 
  renderCartItems();
+
+ // Validaciones al hacer clic en "Finalizar Compra"
+ document.querySelector('.finalizar-compra').addEventListener('click', function() {
+  const department = document.getElementById('department').value;
+  const city = document.getElementById('city').value;
+  const street = document.getElementById('street').value;
+  const number = document.getElementById('number').value;
+  const corner = document.getElementById('corner').value;
+
+  if (!department || !city || !street || !number || !corner) {
+    alert("Por favor, completa todos los campos de dirección.");
+    return;
+  }
+
+  const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked');
+  if (!deliveryMethod) {
+    alert("Por favor, selecciona un método de envío.");
+    return;
+  }
+
+  const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+  if (!paymentMethod) {
+    alert("Por favor, selecciona un método de pago.");
+    return;
+  }
+
+  if (paymentMethod.id === "credit-card") {
+    const cardNumber = document.getElementById('nro').value;
+    const expire = document.getElementById('expire').value;
+    const cvv = document.getElementById('cvv').value;
+    const holder = document.getElementById('holder').value;
+
+    if (!cardNumber || !expire || !cvv || !holder) {
+      alert("Por favor, completa todos los campos de tarjeta de crédito.");
+      return;
+    }
+  }
+
+  if (paymentMethod.id === "bank-transfer") {
+    const origin = document.getElementById('origin').value;
+    const nroTrans = document.getElementById('nroTrans').value;
+    const receipt = document.getElementById('receipt').files.length === 0;
+
+    if (!origin || !nroTrans || receipt) {
+      alert("Por favor, completa todos los campos de transferencia bancaria.");
+      return;
+    }
+  }
+  alert("¡Compra realizada con éxito!");
+  localStorage.removeItem('cartItems');
+});
 });
