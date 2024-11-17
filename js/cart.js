@@ -230,7 +230,29 @@ updateCostSummary('standard');
  renderCartItems();
 
  // Validaciones al hacer clic en "Finalizar Compra"
- document.querySelector('.finalizar-compra').addEventListener('click', function() {
+ 
+
+  document.querySelector('.finalizar-compra').addEventListener('click', function() {
+    // Validar cantidades mayores a 0
+    const rows = document.querySelectorAll('.cart-items tbody tr');
+    let validQuantities = true;
+  
+    rows.forEach((row) => {
+      const quantityInput = row.querySelector('.input-quantity'); // Ajustar la clase según tu código
+      const quantity = parseInt(quantityInput.value, 10);
+  
+      if (isNaN(quantity) || quantity <= 0) {
+        validQuantities = false;
+        quantityInput.classList.add('is-invalid');
+      } else {
+        quantityInput.classList.remove('is-invalid');
+      }
+    });
+  
+    if (!validQuantities) {
+      alert('Por favor, asegúrate de que todas las cantidades sean mayores a 0.');
+      return;
+    }
   const department = document.getElementById('department').value;
   const city = document.getElementById('city').value;
   const street = document.getElementById('street').value;
@@ -248,35 +270,34 @@ updateCostSummary('standard');
     return;
   }
 
-  const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
-  if (!paymentMethod) {
-    alert("Por favor, selecciona un método de pago.");
-    return;
-  }
+  // Obtener todos los grupos de pago
+  const paymentGroups = document.querySelectorAll('[data-group="payment"]');
+  let isValid = false;
 
-  if (paymentMethod.id === "credit-card") {
-    const cardNumber = document.getElementById('nro').value;
-    const expire = document.getElementById('expire').value;
-    const cvv = document.getElementById('cvv').value;
-    const holder = document.getElementById('holder').value;
+  paymentGroups.forEach((group) => {
+    const inputs = group.querySelectorAll("input");
+    let groupValid = true;
 
-    if (!cardNumber || !expire || !cvv || !holder) {
-      alert("Por favor, completa todos los campos de tarjeta de crédito.");
-      return;
+    inputs.forEach((input) => {
+      if (!input.value.trim()) {
+        groupValid = false;
+        input.classList.add("is-invalid");
+      } else {
+        input.classList.remove("is-invalid");
+      }
+    });
+
+    if (groupValid) {
+      isValid = true; // Al menos un grupo está completo
     }
-  }
+  });
 
-  if (paymentMethod.id === "bank-transfer") {
-    const origin = document.getElementById('origin').value;
-    const nroTrans = document.getElementById('nroTrans').value;
-    const receipt = document.getElementById('receipt').files.length === 0;
-
-    if (!origin || !nroTrans || receipt) {
-      alert("Por favor, completa todos los campos de transferencia bancaria.");
-      return;
-    }
+  if (isValid) {
+    alert("¡Compra exitosa!");
+  } else {
+    alert("Elige y completa al menos una forma de pago.");
   }
-  alert("¡Compra realizada con éxito!");
+  
   localStorage.removeItem('cartItems');
 });
 });

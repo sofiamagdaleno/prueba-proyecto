@@ -138,66 +138,69 @@
               </div>
             </div>
             <div class="my-3">
-              <h5>Formas de pago</h5>
-              <div class="accordion" id="deliveryAccordion">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCreditCard" aria-expanded="false" aria-controls="collapseCreditCard">
-                      <img src="img/credit-card-method.png" alt="Imagen de entrega" class="me-2" style="height: 32px;">
-                      Tarjeta de crédito
-                    </button>
-                  </h2>
-                  <div id="collapseCreditCard" class="accordion-collapse collapse" data-bs-parent="#deliveryAccordion">
-                    <div class="accordion-body">
-                      <div class="mb-3">
-                        <label for="nro" class="form-label">Número de tarjeta</label>
-                        <input type="text" class="form-control" id="nro" placeholder="XXXX XXXX XXXX XXXX" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="expire" class="form-label">Vencimiento</label>
-                        <input type="text" class="form-control" id="expire" placeholder="XX-XXXX" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="cvv" class="form-label">CVV</label>
-                        <input type="text" class="form-control" id="cvv" placeholder="XXX" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="holder" class="form-label">Nombre del titular</label>
-                        <input type="text" class="form-control" id="holder" placeholder="Nombre completo" required>
+              <div class="my-3">
+                <h5>Formas de pago</h5>
+                <div class="accordion" id="deliveryAccordion">
+                  <!-- Tarjeta de crédito -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCreditCard" aria-expanded="false" aria-controls="collapseCreditCard">
+                        <img src="img/credit-card-method.png" alt="Imagen de entrega" class="me-2" style="height: 32px;">
+                        Tarjeta de crédito
+                      </button>
+                    </h2>
+                    <div id="collapseCreditCard" class="accordion-collapse collapse" data-group="payment" data-bs-parent="#deliveryAccordion">
+                      <div class="accordion-body">
+                        <div class="mb-3">
+                          <label for="cc-nro" class="form-label">Número de tarjeta</label>
+                          <input type="text" class="form-control" id="cc-nro" placeholder="XXXX XXXX XXXX XXXX">
+                        </div>
+                        <div class="mb-3">
+                          <label for="cc-expire" class="form-label">Vencimiento</label>
+                          <input type="text" class="form-control" id="cc-expire" placeholder="XX-XXXX">
+                        </div>
+                        <div class="mb-3">
+                          <label for="cc-cvv" class="form-label">CVV</label>
+                          <input type="text" class="form-control" id="cc-cvv" placeholder="XXX">
+                        </div>
+                        <div class="mb-3">
+                          <label for="cc-holder" class="form-label">Nombre del titular</label>
+                          <input type="text" class="form-control" id="cc-holder" placeholder="Nombre completo">
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBankTransfer" aria-expanded="false" aria-controls="collapseBankTransfer">
-                      <img src="img/transfer-method.png" alt="Imagen de entrega" class="me-2" style="height: 32px;">
-                      Transferencia bancaria
-                    </button>
-                  </h2>
-                  <div id="collapseBankTransfer" class="accordion-collapse collapse" data-bs-parent="#deliveryAccordion">
-                    <div class="accordion-body">
-                      <div class="mb-3">
-                        <label for="nro" class="form-label">Número de tarjeta</label>
-                        <input type="text" class="form-control" id="nro" placeholder="XXXX XXXX XXXX XXXX" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="origin" class="form-label">Cuenta origen</label>
-                        <input type="text" class="form-control" id="origin" placeholder="XXXXXXXX" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="nroTrans" class="form-label">Número de transacción</label>
-                        <input type="text" class="form-control" id="nroTrans" placeholder="XXXXXXXX" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="receipt" class="form-label">Comprobante de pago</label>
-                        <input class="form-control" type="file" id="receipt" required>
+                  <!-- Transferencia bancaria -->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBankTransfer" aria-expanded="false" aria-controls="collapseBankTransfer">
+                        <img src="img/transfer-method.png" alt="Imagen de entrega" class="me-2" style="height: 32px;">
+                        Transferencia bancaria
+                      </button>
+                    </h2>
+                    <div id="collapseBankTransfer" class="accordion-collapse collapse" data-group="payment" data-bs-parent="#deliveryAccordion">
+                      <div class="accordion-body">
+                        <div class="mb-3">
+                          <label for="bt-nro" class="form-label">Número de tarjeta</label>
+                          <input type="text" class="form-control" id="bt-nro" placeholder="XXXX XXXX XXXX XXXX">
+                        </div>
+                        <div class="mb-3">
+                          <label for="bt-origin" class="form-label">Cuenta origen</label>
+                          <input type="text" class="form-control" id="bt-origin" placeholder="XXXXXXXX">
+                        </div>
+                        <div class="mb-3">
+                          <label for="bt-nroTrans" class="form-label">Número de transacción</label>
+                          <input type="text" class="form-control" id="bt-nroTrans" placeholder="XXXXXXXX">
+                        </div>
+                        <div class="mb-3">
+                          <label for="bt-receipt" class="form-label">Comprobante de pago</label>
+                          <input class="form-control" type="file" id="bt-receipt">
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             <!-- Resumen de costos -->
         <div>
           <h5>Resumen de costos</h5>
