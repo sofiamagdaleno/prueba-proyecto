@@ -258,6 +258,17 @@ body {
   color: #fff !important;
 }
 
+.finalizar-compra{
+  background-color: #f35079 !important; /* Rosado claro */
+  border-color: #f35079 !important;
+  color: #fff !important; /* Texto blanco */
+  font-weight: 700!important;
+  cursor: pointer!important;
+  transition: background-color 0.3s ease, color 0.3s ease!important;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
 
 /* Personaliza el botón del selector de envío */
 .form-select {
