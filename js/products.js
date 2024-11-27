@@ -1,5 +1,5 @@
 let valor_id = localStorage.getItem("catID");
-const url = "https://japceibal.github.io/emercado-api/cats_products/" + valor_id + ".json";
+const url = "http://localhost:3000/api/cats_products/" + valor_id;
 
 
 let productos = [];

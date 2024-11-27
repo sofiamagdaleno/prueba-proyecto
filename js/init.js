@@ -1,11 +1,13 @@
-const CATEGORIES_URL = "https://japceibal.github.io/emercado-api/cats/cat.json";
-const PUBLISH_PRODUCT_URL = "https://japceibal.github.io/emercado-api/sell/publish.json";
-const PRODUCTS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
-const PRODUCT_INFO_URL = "https://japceibal.github.io/emercado-api/products/";
-const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/products_comments/";
-const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
-const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
-const EXT_TYPE = ".json";
+const BASE_URL = "http://localhost:3000/api";
+
+const CATEGORIES_URL = `${BASE_URL}/categories`; // Ruta para categorías
+const PUBLISH_PRODUCT_URL = `${BASE_URL}/sell`; // Ruta para publicar producto
+const PRODUCTS_URL = `${BASE_URL}/cats_products/`; // Ruta para productos por categoría
+const PRODUCT_INFO_URL = `${BASE_URL}/products/`; // Ruta para detalles de un producto
+const PRODUCT_INFO_COMMENTS_URL = `${BASE_URL}/products_comments/`; // Ruta para comentarios de un producto
+const CART_INFO_URL = `${BASE_URL}/user-cart`; // Ruta para carrito de usuario
+const CART_BUY_URL = `${BASE_URL}/cart`; // Ruta para el proceso de compra
+const EXT_TYPE = ".json"; // Si este sufijo no es necesario, puedes eliminarlo
 
 let showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";

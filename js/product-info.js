@@ -1,5 +1,5 @@
 const productId = localStorage.getItem("selectedProductid"); // Obtener el ID del producto del localStorage
-const url = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+const url = `http://localhost:3000/api/products/${productId}`; // Nueva URL local
 const formReview = document.getElementById("review");
 
 // Función para cargar los detalles del producto
@@ -76,8 +76,7 @@ async function displayRelatedProducts(relatedProducts) {
   relatedProductsContainer.innerHTML = ""; // Limpiar productos anteriores
 
   for (const relatedProduct of relatedProducts) {
-    const relatedProductUrl = `https://japceibal.github.io/emercado-api/products/${relatedProduct.id}.json`;
-
+    const relatedProductUrl = `http://localhost:3000/api/products/${relatedProduct.id}`;
     try {
       const response = await fetch(relatedProductUrl);
       const productDetails = await response.json();
@@ -193,7 +192,7 @@ function createReview(review) {
 formReview.addEventListener("submit", saveReview);
 
 // Sección comentarios del producto
-const url_comm = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
+const url_comm = `http://localhost:3000/api/products_comments/${productId}`; 
 
 fetch(url_comm)
   .then((response) => {
