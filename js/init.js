@@ -7,7 +7,7 @@ const PRODUCT_INFO_URL = `${BASE_URL}/products/`; // Ruta para detalles de un pr
 const PRODUCT_INFO_COMMENTS_URL = `${BASE_URL}/products_comments/`; // Ruta para comentarios de un producto
 const CART_INFO_URL = `${BASE_URL}/user-cart`; // Ruta para carrito de usuario
 const CART_BUY_URL = `${BASE_URL}/cart`; // Ruta para el proceso de compra
-const EXT_TYPE = ".json"; // Si este sufijo no es necesario, puedes eliminarlo
+const EXT_TYPE = ".json"; 
 
 let showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
