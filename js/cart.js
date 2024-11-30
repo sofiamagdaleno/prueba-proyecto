@@ -300,5 +300,45 @@ updateCostSummary('standard');
   }
   
   localStorage.removeItem('cartItems');
+  
+  // Función para enviar el carrito al backend
+async function sendCartToServer(cartItems, userId) {
+  const apiUrl = 'http://localhost:3000/api/cart'; 
+
+  // Preparar datos para la solicitud
+  const body = {
+      userId: userId,
+      products: cartItems.map(item => ({
+          productId: item.id,
+          cost: item.cost,
+          quantity: item.quantity,
+          shippingCost: item.shippingCost
+      }))
+  };
+
+  try {
+      const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+      });
+
+      if (!response.ok) {
+          const errorData = await response.json();
+          console.error('Error en la solicitud:', errorData);
+          alert('Hubo un problema al procesar el pedido.');
+          return;
+      }
+
+      const data = await response.json();
+      console.log('Pedido enviado con éxito:', data);
+      alert(`Pedido creado con éxito. ID del pedido: ${data.orderId}`);
+  } catch (error) {
+      console.error('Error al enviar el carrito:', error);
+      alert('No se pudo enviar el pedido. Intenta nuevamente.');
+  }
+}
 });
 });
