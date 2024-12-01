@@ -298,10 +298,7 @@ updateCostSummary('standard');
   } else {
     alert("Elige y completa al menos una forma de pago.");
   }
-  
-  localStorage.removeItem('cartItems');
-  
-  // Función para enviar el carrito al backend
+    // Función para enviar el carrito al backend
 async function sendCartToServer(cartItems, userId) {
   const apiUrl = 'http://localhost:3000/api/cart'; 
 
@@ -341,4 +338,7 @@ async function sendCartToServer(cartItems, userId) {
   }
 }
 });
+  localStorage.removeItem('cartItems');
+  
+
 });
